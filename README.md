@@ -1,8 +1,8 @@
-#OpenWrt for Arduino YÃºn
+#OpenWrt for Arduino Y«ân
 
 ##Description
 
-OpenWrt for Arduino YÃºn : trunk (Bleeding Edge)
+OpenWrt for Arduino Y«ân : trunk (Bleeding Edge)
 
 Extra files and scripts for building OpenWrt-Yun.
 
@@ -10,8 +10,8 @@ Extra files and scripts for building OpenWrt-Yun.
 
 See:
 - [OpenWrt license](http://wiki.openwrt.org/about/license)
-- [OpenWrt YÃºn license](https://github.com/arduino/openwrt-yun/blob/master/LICENSE)
-- [OpenWrt YÃºn license](https://github.com/RedSnake64/openwrt-yun/blob/15.05/LICENSE)
+- [OpenWrt Y«ân license](https://github.com/arduino/openwrt-yun/blob/master/LICENSE)
+- [OpenWrt Y«ân license](https://github.com/RedSnake64/openwrt-yun/blob/15.05/LICENSE)
 
 ## Reference
 - [Arduino CC OpenWrt Y«ân](https://github.com/arduino/openwrt-yun)
