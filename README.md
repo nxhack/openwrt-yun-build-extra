@@ -27,4 +27,6 @@ cd openwrt
 mv ../openwrt-yun-build-extra/* .
 ./build.sh
 ```
-Enjoy!
+Please modify ./files/etc/opkg/distfeeds.conf
+
+**Enjoy!**
