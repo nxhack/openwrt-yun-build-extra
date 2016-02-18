@@ -16,3 +16,15 @@ See:
 ## Reference
 - [Arduino CC OpenWrt Yún](https://github.com/arduino/openwrt-yun)
 - [RedSnake64 OpenWrt for Arduino Yún](https://github.com/RedSnake64/openwrt-yun/tree/15.05)
+
+## Building
+```bash
+mkdir Build_Path_Some_Where
+cd Build_Path_Some_Where
+git clone --depth=1 --branch master --single-branch https://github.com/openwrt/openwrt.git
+git clone --depth=1 --branch master --single-branch https://github.com/nxhack/openwrt-yun-build-extra.git
+cd openwrt
+mv ../openwrt-yun-build-extra/* .
+./build.sh
+```
+Enjoy!
