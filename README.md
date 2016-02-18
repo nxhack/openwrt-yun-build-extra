@@ -14,7 +14,7 @@ See:
 - [OpenWrt Yún license](https://github.com/RedSnake64/openwrt-yun/blob/15.05/LICENSE)
 
 ## Reference
-- [Arduino CC OpenWrt Yún](https://github.com/arduino/openwrt-yun)
+- [Arduino LLC OpenWrt Yún](https://github.com/arduino/openwrt-yun)
 - [RedSnake64 OpenWrt for Arduino Yún](https://github.com/RedSnake64/openwrt-yun/tree/15.05)
 
 ## Building
