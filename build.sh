@@ -7,7 +7,7 @@ rm -rf feeds
 ./scripts/feeds install -a
 
 #UNINSTALL BROKEN PACKAGES
-#./scripts/feeds uninstall aria2 freecwmp libfreecwmp libmicroxml
+#./scripts/feeds uninstall aria2 freecwmp libfreecwmp libmicroxml crtmpserver dansguardian
 
 #DELETE PACKAGES
 rm -rf ./package/feeds/packages/node-serialport
