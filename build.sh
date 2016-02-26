@@ -52,7 +52,7 @@ ln -s ../../../feeds/arduino/node-arduino-firmata ./package/feeds/arduino/
 
 # PATCH PACKAGES
 sed -i -e s/^START=98/START=48/ ./feeds/packages/utils/rng-tools/files/rngd.init
-if [ -z '`git status|fgrep mach-arduino-yun.c`' ]; then
+if [ -z "`git status|fgrep mach-arduino-yun.c`" ]; then
     patch -p1 < ./patches/00-arduino-yun-gpio_keys_polled.patch
 fi
 
