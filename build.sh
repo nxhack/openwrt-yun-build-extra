@@ -25,6 +25,11 @@ else
     fi
 fi
 
+#INIT KERNEL CONFIG
+if [ ! -e '.config' ]; then
+    cp openwrt-yun-minimum.config .config
+fi
+
 #CLEAN
 make clean
 
