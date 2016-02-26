@@ -18,13 +18,27 @@
  static void __init ds_common_setup(void)
  {
  	static u8 mac[6];
-@@ -97,6 +108,9 @@
+@@ -95,16 +106,19 @@
  
- 	ath79_register_leds_gpio(-1, ARRAY_SIZE(ds_leds_gpio),
- 				 ds_leds_gpio);
+ 	ds_common_setup();
+ 
+-	ath79_register_leds_gpio(-1, ARRAY_SIZE(ds_leds_gpio),
+-				 ds_leds_gpio);
+-	ath79_register_usb();
+-
+ 	//Disable the Function for some pins to have GPIO functionality active
+ 	// GPIO6-7-8 and GPIO11
+ 	ath79_gpio_function_setup(AR933X_GPIO_FUNC_JTAG_DISABLE | AR933X_GPIO_FUNC_I2S_MCK_EN, 0);
+ 
+ 	ath79_gpio_function2_setup(AR933X_GPIO_FUNC2_JUMPSTART_DISABLE, 0);
+ 
++	ath79_register_leds_gpio(-1, ARRAY_SIZE(ds_leds_gpio),
++				 ds_leds_gpio);
 +	ath79_register_gpio_keys_polled(-1, DS_KEYS_POLL_INTERVAL,
 +					ARRAY_SIZE(ds_gpio_keys),
 +					ds_gpio_keys);
- 	ath79_register_usb();
++	ath79_register_usb();
++
+ 	printk("Setting DogStick2 GPIO\n");
  
- 	//Disable the Function for some pins to have GPIO functionality active
+ 	t = ath79_reset_rr(AR933X_RESET_REG_BOOTSTRAP);
