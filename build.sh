@@ -28,6 +28,8 @@ fi
 #INIT KERNEL CONFIG
 if [ ! -e '.config' ]; then
     cp openwrt-yun-minimum.config .config
+else
+    cp .config ./backups/config.${BUILD_DATE}-$$
 fi
 
 #CLEAN
@@ -57,7 +59,7 @@ if [ -z "`git status|fgrep mach-arduino-yun.c`" ]; then
 fi
 
 #COPY CONFIG FILE
-mv .config ./backups/config.${BUILD_DATE}-$$
+mv .config ./backups/feeds-config.${BUILD_DATE}-$$
 cp openwrt-yun-minimum.config .config
 
 make oldconfig
