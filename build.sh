@@ -57,9 +57,6 @@ sed -i -e s/^START=98/START=48/ ./feeds/packages/utils/rng-tools/files/rngd.init
 if [ -z "`git status|fgrep mach-arduino-yun.c`" ]; then
     patch -p1 < ./patches/00-arduino-yun-gpio_keys_polled.patch
 fi
-#if [ -z "`git status|fgrep gpio-button-hotplug.c`" ]; then
-#    cp ./patches/gpio-button-hotplug.c ./package/kernel/gpio-button-hotplug/src/
-#fi
 
 #COPY CONFIG FILE
 mv .config ./backups/feeds-config.${BUILD_DATE}-$$
