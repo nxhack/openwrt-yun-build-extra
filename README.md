@@ -17,7 +17,7 @@ See:
 - [Arduino LLC OpenWrt Yún](https://github.com/arduino/openwrt-yun)
 - [RedSnake64 OpenWrt for Arduino Yún](https://github.com/RedSnake64/openwrt-yun/tree/15.05)
 
-## Building
+## Build
 ```bash
 mkdir Build_Path_Some_Where
 cd Build_Path_Some_Where
