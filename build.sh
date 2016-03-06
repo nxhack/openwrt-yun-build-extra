@@ -32,8 +32,18 @@ else
     cp .config ./backups/config.${BUILD_DATE}-$$
 fi
 
+#BACKUP DL FOLDER
+if [ -d 'dl' ]; then
+    mv dl dl.orig
+fi
+
 #CLEAN
-make clean
+make distclean
+
+#RESTORE DL FOLDER
+if [ -d 'dl.orig' ]; then
+    mv dl.orig dl
+fi
 
 #FEEDS
 ./scripts/feeds uninstall -a
