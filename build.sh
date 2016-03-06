@@ -7,22 +7,14 @@ if [ ! -e 'backups' ]; then
     mkdir backups
 fi
 
-#BACKUP AND RESTORE LOCAL BUILD KEY
+#BACKUP LOCAL BUILD KEY
 if [ -e 'key-build' ]; then
     cp -n key-build ./backups/
     cp key-build ./backups/key-build.${BUILD_DATE}-$$
-else
-    if [ -e 'backups/key-build' ]; then
-        cp ./backups/key-build .
-    fi
 fi
 if [ -e 'key-build.pub' ]; then
     cp -n key-build.pub ./backups/
     cp key-build.pub ./backups/key-build.pub.${BUILD_DATE}-$$
-else
-    if [ -e 'backups/key-build.pub' ]; then
-        cp ./backups/key-build.pub .
-    fi
 fi
 
 #INIT KERNEL CONFIG
@@ -45,6 +37,14 @@ make distclean
 #RESTORE DL FOLDER
 if [ -d 'dl.orig' ]; then
     mv dl.orig dl
+fi
+
+#RESTORE LOCAL BUILD KEY
+if [ -e 'backups/key-build' ]; then
+    cp ./backups/key-build .
+fi
+if [ -e 'backups/key-build.pub' ]; then
+    cp ./backups/key-build.pub .
 fi
 
 #FEEDS
