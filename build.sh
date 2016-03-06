@@ -38,6 +38,8 @@ if [ -d 'dl' ]; then
 fi
 
 #CLEAN
+make clean
+make dirclean
 make distclean
 
 #RESTORE DL FOLDER
