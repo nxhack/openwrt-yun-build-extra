@@ -25,7 +25,7 @@ cd Build_Path_Some_Where
 git clone --depth=1 https://git.openwrt.org/openwrt.git
 git clone --depth=1 --branch master --single-branch https://github.com/nxhack/openwrt-yun-build-extra.git
 cd openwrt
-mv ../openwrt-yun-build-extra/* .
+ln -s ../openwrt-yun-build-extra/* .
 ./build.sh
 ```
 Please modify ./files/etc/opkg/distfeeds.conf
