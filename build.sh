@@ -25,7 +25,7 @@ else
 fi
 
 #BACKUP DL FOLDER
-if [ -d 'dl' ]; then
+if [ -e 'dl' ]; then
     mv dl dl.orig
 fi
 
@@ -35,7 +35,7 @@ make dirclean
 make distclean
 
 #RESTORE DL FOLDER
-if [ -d 'dl.orig' ]; then
+if [ -e 'dl.orig' ]; then
     mv dl.orig dl
 fi
 
