@@ -27,7 +27,7 @@
 +					ds_gpio_keys);
  	ath79_register_usb();
  
-+	// use the swtich_led directly form sysfs
++	/* use the swtich_led directly form sysfs */
 +	ath79_gpio_function_disable(AR933X_GPIO_FUNC_ETH_SWITCH_LED0_EN |
 +								AR933X_GPIO_FUNC_ETH_SWITCH_LED1_EN |
 +								AR933X_GPIO_FUNC_ETH_SWITCH_LED2_EN |
