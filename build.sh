@@ -57,12 +57,12 @@ rm -rf feeds
 #./scripts/feeds uninstall aria2 freecwmp libfreecwmp libmicroxml crtmpserver dansguardian
 
 #DELETE PACKAGES
-rm -rf ./package/feeds/packages/node-serialport
-rm -rf ./package/feeds/packages/node-arduino-firmata
+#rm -rf ./package/feeds/packages/node-serialport
+#rm -rf ./package/feeds/packages/node-arduino-firmata
 
 #LINK CUSTOM PACKAGES
-ln -s ../../../feeds/arduino/node-serialport ./package/feeds/arduino/
-ln -s ../../../feeds/arduino/node-arduino-firmata ./package/feeds/arduino/
+#ln -s ../../../feeds/arduino/node-serialport ./package/feeds/arduino/
+#ln -s ../../../feeds/arduino/node-arduino-firmata ./package/feeds/arduino/
 
 # PATCH PACKAGES
 sed -i -e s/^START=98/START=48/ ./feeds/packages/utils/rng-tools/files/rngd.init
