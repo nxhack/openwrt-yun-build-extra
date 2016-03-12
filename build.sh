@@ -68,7 +68,7 @@ rm -rf feeds
 sed -i -e s/^START=98/START=48/ ./feeds/packages/utils/rng-tools/files/rngd.init
 sed -i -e "s/\/host\/bin\/npm\ /\/root-\$\(BOARD\)\/usr\/bin\/npm\ /" ./feeds/packages/lang/node-arduino-firmata/Makefile
 sed -i -e "s/\/host\/bin\/npm\ /\/root-\$\(BOARD\)\/usr\/bin\/npm\ /" ./feeds/packages/lang/node-cylon/Makefile
-sed -i -e "s/\/host\/bin\/npm\ /\/root-\$\(BOARD\)\/usr\/bin\/npm\ /" ./feeds/packages/lang/node-hid/Makefile
+#sed -i -e "s/\/host\/bin\/npm\ /\/root-\$\(BOARD\)\/usr\/bin\/npm\ /" ./feeds/packages/lang/node-hid/Makefile
 sed -i -e "s/\/host\/bin\/npm\ /\/root-\$\(BOARD\)\/usr\/bin\/npm\ /" ./feeds/packages/lang/node-serialport/Makefile
 #if [ -z "`git status|fgrep mach-arduino-yun.c`" ]; then
 #    patch -p1 < ./patches/00-arduino-yun-gpio_keys_polled.patch
