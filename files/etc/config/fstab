@@ -1,5 +1,5 @@
 
-config 'global'
+config global
 	option anon_swap '0'
 	option anon_mount '0'
 	option auto_swap '1'
@@ -7,7 +7,7 @@ config 'global'
 	option delay_root '5'
 	option check_fs '0'
 
-config 'global' 'automount'
+config global 'automount'
 	option from_fstab '1'
 	option anon_mount '1'
 
