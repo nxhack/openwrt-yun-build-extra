@@ -1,0 +1,21 @@
+#!/bin/sh
+
+# Copyright (C) 2016 OpenWrt.org
+
+# TESTING...
+logger -t DEBUG "hotplug usb: action='$ACTION' devicename='$DEVICENAME' devname='$DEVNAME' devpath='$DEVPATH' product='$PRODUCT' type='$TYPE' interface='$INTERFACE'"
+
+case "$ACTION" in
+    add)
+        [ -n "${INTERFACE}" ] &&
+        [ "$(expr substr ${INTERFACE} 1 2)" == "8/" ]  && {
+            # /sbin/block mount
+        }
+        ;;
+    remove)
+        [ -n "${INTERFACE}" ] &&
+        [ "$(expr substr ${INTERFACE} 1 2)" == "8/" ]  && {
+            # /sbin/block umount
+        }
+        ;;
+esac
