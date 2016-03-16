@@ -66,10 +66,10 @@ rm -rf feeds
 
 # PATCH PACKAGES
 sed -i -e s/^START=98/START=48/ ./feeds/packages/utils/rng-tools/files/rngd.init
-sed -i -e "s/\$\(STAGING_DIR\)\/host\/bin\/npm\ /\/\$\(STAGING_DIR_ROOT\)\/usr\/bin\/npm\ /" ./feeds/packages/lang/node-arduino-firmata/Makefile
-sed -i -e "s/\$\(STAGING_DIR\)\/host\/bin\/npm\ /\/\$\(STAGING_DIR_ROOT\)\/usr\/bin\/npm\ /" ./feeds/packages/lang/node-cylon/Makefile
-#sed -i -e "s/\$\(STAGING_DIR\)\/host\/bin\/npm\ /\/\$\(STAGING_DIR_ROOT\)\/usr\/bin\/npm\ /" ./feeds/packages/lang/node-hid/Makefile
-sed -i -e "s/\$\(STAGING_DIR\)\/host\/bin\/npm\ /\/\$\(STAGING_DIR_ROOT\)\/usr\/bin\/npm\ /" ./feeds/packages/lang/node-serialport/Makefile
+sed -i -e 's/\$(STAGING_DIR)\/host\/bin\/npm\ /\$(STAGING_DIR_ROOT)\/usr\/bin\/npm\ /' ./feeds/packages/lang/node-arduino-firmata/Makefile
+sed -i -e 's/\$(STAGING_DIR)\/host\/bin\/npm\ /\$(STAGING_DIR_ROOT)\/usr\/bin\/npm\ /' ./feeds/packages/lang/node-cylon/Makefile
+#sed -i -e 's/\$(STAGING_DIR)\/host\/bin\/npm\ /\$(STAGING_DIR_ROOT)\/usr\/bin\/npm\ /' ./feeds/packages/lang/node-hid/Makefile
+sed -i -e 's/\$(STAGING_DIR)\/host\/bin\/npm\ /\$(STAGING_DIR_ROOT)\/usr\/bin\/npm\ /' ./feeds/packages/lang/node-serialport/Makefile
 #if [ -z "`git status|fgrep mach-arduino-yun.c`" ]; then
 #    patch -p1 < ./patches/00-arduino-yun-gpio_keys_polled.patch
 #fi
