@@ -32,5 +32,5 @@ Please modify ./files/etc/opkg/distfeeds.conf
 
 **Enjoy!**
 
-## Links
+## Behind the scenes
 - [OpenWrt for Arduino Yun cheat sheet](http://www.egrep.jp/wiki/index.php/OpenWrt_for_Arduino_Yun_cheat_sheet)
