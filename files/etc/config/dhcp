@@ -16,6 +16,7 @@ config dnsmasq
 	option resolvfile '/tmp/resolv.conf.auto'
 	option nonwildcard '1'
 	list interface 'lo,wlan0'
+	option localservice '1'
 
 config dhcp 'lan'
 	option interface 'lan'
