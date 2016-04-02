@@ -75,4 +75,5 @@ mv .config ./backups/feeds-config.${BUILD_DATE}-$$
 cp openwrt-yun-minimum.config .config
 
 make oldconfig
+make kernel_menuconfig
 make
