@@ -16,8 +16,9 @@ sudo apt-get install -y git subversion build-essential asciidoc \
 	bcc sharutils openjdk-7-jdk mercurial cvs bzr \
 	nodejs-legacy curl g++-multilib squashfs-tools
 
+#### node-* package do host install, so not required nodejs install process.
 # Install nodejs : https://nodejs.org/en/download/package-manager/#debian-and-ubuntu-based-linux-distributions
-curl -sL https://deb.nodesource.com/setup_4.x | sudo -E bash -
-sudo apt-get install -y nodejs
+#curl -sL https://deb.nodesource.com/setup_4.x | sudo -E bash -
+#sudo apt-get install -y nodejs
 
 echo "ALL DONE! YEAH!!"
