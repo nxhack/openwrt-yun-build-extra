@@ -72,14 +72,13 @@ ln -s ../../../feeds/arduino/node-serialport ./package/feeds/arduino/
 
 # PATCH PACKAGES
 sed -i -e s/^START=98/START=48/ ./feeds/packages/utils/rng-tools/files/rngd.init
-#if [ -z "`git status|fgrep mach-arduino-yun.c`" ]; then
-#    patch -p1 < ./patches/00-arduino-yun-gpio_keys_polled.patch
-#fi
+if [ -z "`git status|fgrep config-4.1`" ]; then
+    patch -p1 < ./patches/000-MIPS_FPU_EMULATOR.patch
+fi
 
 #COPY CONFIG FILE
 mv .config ./backups/feeds-config.${BUILD_DATE}-$$
 cp openwrt-yun-minimum.config .config
 
 make oldconfig
-make kernel_menuconfig
 make
