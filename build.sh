@@ -72,6 +72,8 @@ ln -s ../../../feeds/arduino/node-serialport ./package/feeds/arduino/
 
 # PATCH PACKAGES
 sed -i -e s/^START=98/START=48/ ./feeds/packages/utils/rng-tools/files/rngd.init
+
+# PATCH KERNEL CONFIG
 if [ -z "`git status|fgrep config-4.1`" ]; then
     patch -p1 < ./patches/000-MIPS24Kc+PCI+FPU_EMU.patch
 fi
