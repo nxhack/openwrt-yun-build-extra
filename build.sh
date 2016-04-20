@@ -57,18 +57,18 @@ rm -rf feeds
 #./scripts/feeds uninstall aria2 freecwmp libfreecwmp libmicroxml crtmpserver dansguardian
 
 #DELETE PACKAGES
-rm -rf ./package/feeds/packages/node
-rm -rf ./package/feeds/packages/node-arduino-firmata
-rm -rf ./package/feeds/packages/node-cylon
-rm -rf ./package/feeds/packages/node-hid
-rm -rf ./package/feeds/packages/node-serialport
+#rm -rf ./package/feeds/packages/node
+#rm -rf ./package/feeds/packages/node-arduino-firmata
+#rm -rf ./package/feeds/packages/node-cylon
+#rm -rf ./package/feeds/packages/node-hid
+#rm -rf ./package/feeds/packages/node-serialport
 
 #LINK CUSTOM PACKAGES
-ln -s ../../../feeds/arduino/node ./package/feeds/arduino/
-ln -s ../../../feeds/arduino/node-arduino-firmata ./package/feeds/arduino/
-ln -s ../../../feeds/arduino/node-cylon ./package/feeds/arduino/
-ln -s ../../../feeds/arduino/node-hid ./package/feeds/arduino/
-ln -s ../../../feeds/arduino/node-serialport ./package/feeds/arduino/
+#ln -s ../../../feeds/arduino/node ./package/feeds/arduino/
+#ln -s ../../../feeds/arduino/node-arduino-firmata ./package/feeds/arduino/
+#ln -s ../../../feeds/arduino/node-cylon ./package/feeds/arduino/
+#ln -s ../../../feeds/arduino/node-hid ./package/feeds/arduino/
+#ln -s ../../../feeds/arduino/node-serialport ./package/feeds/arduino/
 
 # PATCH PACKAGES
 sed -i -e s/^START=98/START=48/ ./feeds/packages/utils/rng-tools/files/rngd.init
