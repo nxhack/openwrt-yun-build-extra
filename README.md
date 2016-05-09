@@ -22,6 +22,7 @@ See:
 mkdir Build_Path_Some_Where
 cd Build_Path_Some_Where
 git clone --depth=1 https://git.openwrt.org/openwrt.git
+#git clone --depth=1 --branch master --single-branch https://github.com/lede-project/staging.git
 git clone --depth=1 --branch master --single-branch https://github.com/nxhack/openwrt-yun-build-extra.git
 cd openwrt
 ln -s ../openwrt-yun-build-extra/* .
