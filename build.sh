@@ -84,7 +84,11 @@ fi
 
 #COPY CONFIG FILE
 mv .config ./backups/feeds-config.${BUILD_DATE}-$$
-cp openwrt-yun-minimum.config .config
+if [ -z "`fgrep 'LEDE Configuration' Config.in`" ]; then
+    cp openwrt-yun-minimum.config .config
+else
+    cp lede-yun-minimum.config .config
+fi
 
 make oldconfig
 make
