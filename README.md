@@ -1,8 +1,8 @@
-#OpenWrt for Arduino Yún
+#OpenWrt/LEDE for Arduino Yún
 
 ##Description
 
-OpenWrt for Arduino Yún : trunk (Bleeding Edge)
+OpenWrt/LEDE for Arduino Yún : trunk (Bleeding Edge)
 
 Extra files and scripts for building OpenWrt-Yun.
 
