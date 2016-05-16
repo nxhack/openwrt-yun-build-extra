@@ -2807,10 +2807,10 @@ index a20c6a5..0000000
 -   }
 - }
 diff --git a/lang/node/Makefile b/lang/node/Makefile
-index 7effb08..4dd3fcc 100644
+index 7effb08..799bf1b 100644
 --- a/lang/node/Makefile
 +++ b/lang/node/Makefile
-@@ -44,19 +44,26 @@ define Package/node/description
+@@ -44,19 +44,33 @@ define Package/node/description
     package ecosystem, npm, is the largest ecosystem of open source libraries in the world.
  endef
  
@@ -2834,6 +2834,13 @@ index 7effb08..4dd3fcc 100644
 +ifeq ($(CONFIG_SOFT_FLOAT),y)
 +CONFIGURE_ARGS+= \
 +	--with-mips-float-abi=soft
++endif
++endif
++
++ifeq ($(findstring arm,$(NODEJS_CPU)),arm)
++ifeq ($(CONFIG_SOFT_FLOAT),y)
++CONFIGURE_ARGS+= \
++	--with-arm-float-abi=softfp
 +endif
 +endif
 +
