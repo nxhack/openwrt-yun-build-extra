@@ -74,20 +74,31 @@ rm -rf feeds
 sed -i -e s/^START=98/START=48/ ./feeds/packages/utils/rng-tools/files/rngd.init
 sed -i -e s/^RNGD_AMOUNT=4000/RNGD_AMOUNT=4096/ ./feeds/packages/utils/rng-tools/files/rngd.init
 
-# PATCH KERNEL CONFIG
-if [ -z "`git status|fgrep ar71xx/config-4.1`" ]; then
-    patch -p1 < ./patches/000-MIPS24Kc+PCI+FPU_EMU.patch
-fi
-if [ -z "`git status|fgrep ar71xx/Makefile`" ]; then
-    patch -p1 < ./patches/000-TARGET_CPU_TYPE.patch
-fi
-
-#COPY CONFIG FILE
+# BACKUP FEEDS CONFIG
 mv .config ./backups/feeds-config.${BUILD_DATE}-$$
+
+# IF OpenWRT
 if [ -z "`fgrep 'LEDE Configuration' Config.in`" ]; then
-    cp openwrt-yun-minimum.config .config
+  # PATCH KERNEL CONFIG
+  if [ -z "`git status|fgrep ar71xx/config-4.1`" ]; then
+      patch -p1 < ./patches/000-MIPS24Kc+PCI+FPU_EMU.patch
+  fi
+  if [ -z "`git status|fgrep ar71xx/Makefile`" ]; then
+      patch -p1 < ./patches/000-TARGET_CPU_TYPE.patch
+  fi
+  #COPY CONFIG FILE
+  cp openwrt-yun-minimum.config .config
+# ESLE OpenWRT/LEDE
 else
-    cp lede-yun-minimum.config .config
+  # PATCH KERNEL CONFIG
+  if [ -z "`git status|fgrep ar71xx/config-4.1`" ]; then
+      patch -p1 < ./patches/LEDE-MIPS24Kc+PCI+FPU_EMU.patch
+  fi
+  if [ -z "`git status|fgrep ar71xx/Makefile`" ]; then
+      patch -p1 < ./patches/LEDE-TARGET_CPU_TYPE.patch
+  fi
+  #COPY CONFIG FILE
+  cp lede-yun-minimum.config .config
 fi
 
 make oldconfig
