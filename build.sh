@@ -91,11 +91,9 @@ if [ -z "`fgrep 'LEDE Configuration' Config.in`" ]; then
 # ESLE OpenWRT/LEDE
 else
   # PATCH KERNEL CONFIG
-  if [ -z "`git status|fgrep ar71xx/config-4.1`" ]; then
-      patch -p1 < ./patches/LEDE-MIPS24Kc+PCI+FPU_EMU.patch
-  fi
   if [ -z "`git status|fgrep ar71xx/Makefile`" ]; then
-      patch -p1 < ./patches/LEDE-TARGET_CPU_TYPE.patch
+      patch -p1 < ./patches/LEDE-MIPS24Kc+PCI+FPU_EMU-4.1.patch
+      #patch -p1 < ./patches/LEDE-MIPS24Kc+PCI+FPU_EMU-4.4.patch
   fi
   #COPY CONFIG FILE
   cp lede-yun-minimum.config .config
