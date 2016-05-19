@@ -97,6 +97,7 @@ else
   fi
   #COPY CONFIG FILE
   cp lede-yun-minimum.config .config
+  #cp lede-yun-minimum-4.4.config .config
 fi
 
 make oldconfig
