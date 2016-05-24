@@ -92,12 +92,12 @@ if [ -z "`fgrep 'LEDE Configuration' Config.in`" ]; then
 else
   # PATCH KERNEL CONFIG
   if [ -z "`git status|fgrep ar71xx/Makefile`" ]; then
-      patch -p1 < ./patches/LEDE-MIPS24Kc+PCI+FPU_EMU-4.1.patch
-      #patch -p1 < ./patches/LEDE-MIPS24Kc+PCI+FPU_EMU-4.4.patch
+      #patch -p1 < ./patches/LEDE-MIPS24Kc+PCI+FPU_EMU-4.1.patch
+      patch -p1 < ./patches/LEDE-MIPS24Kc+PCI+FPU_EMU-4.4.patch
   fi
   #COPY CONFIG FILE
-  cp lede-yun-minimum.config .config
-  #cp lede-yun-minimum-4.4.config .config
+  #cp lede-yun-minimum.config-4.1 .config
+  cp lede-yun-minimum-4.4.config .config
 fi
 
 make oldconfig
