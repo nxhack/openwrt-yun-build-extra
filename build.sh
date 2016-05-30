@@ -2,6 +2,9 @@
 
 BUILD_DATE=`date +%Y%m%d-%H%M%S`
 
+#CHECK LEDE REPOSTORY
+IS_LEDE=`fgrep 'LEDE Configuration' Config.in`
+
 #CREATE BACKUP DIRECTORY
 if [ ! -e 'backups' ]; then
     mkdir backups
@@ -19,7 +22,11 @@ fi
 
 #INIT KERNEL CONFIG
 if [ ! -e '.config' ]; then
+  if [ -n ${IS_LEDE} ]; then
+    cp lede-yun-minimum-4.4.config .config
+  else
     cp openwrt-yun-minimum.config .config
+  fi
 else
     cp .config ./backups/config.${BUILD_DATE}-$$
 fi
@@ -77,27 +84,22 @@ sed -i -e s/^RNGD_AMOUNT=4000/RNGD_AMOUNT=4096/ ./feeds/packages/utils/rng-tools
 # BACKUP FEEDS CONFIG
 mv .config ./backups/feeds-config.${BUILD_DATE}-$$
 
-# IF OpenWRT
-if [ -z "`fgrep 'LEDE Configuration' Config.in`" ]; then
-  # PATCH KERNEL CONFIG
+# PATCH KERNEL CONFIG & COPY CONFIG FILE
+if [ -n ${IS_LEDE} ]; then
+  if [ -z "`git status|fgrep ar71xx/Makefile`" ]; then
+      #patch -p1 < ./patches/LEDE-MIPS24Kc+PCI+FPU_EMU-4.1.patch
+      patch -p1 < ./patches/LEDE-MIPS24Kc+PCI+FPU_EMU-4.4.patch
+  fi
+  #cp lede-yun-minimum.config-4.1 .config
+  cp lede-yun-minimum-4.4.config .config
+else
   if [ -z "`git status|fgrep ar71xx/config-4.1`" ]; then
       patch -p1 < ./patches/000-MIPS24Kc+PCI+FPU_EMU.patch
   fi
   if [ -z "`git status|fgrep ar71xx/Makefile`" ]; then
       patch -p1 < ./patches/000-TARGET_CPU_TYPE.patch
   fi
-  #COPY CONFIG FILE
   cp openwrt-yun-minimum.config .config
-# ESLE OpenWRT/LEDE
-else
-  # PATCH KERNEL CONFIG
-  if [ -z "`git status|fgrep ar71xx/Makefile`" ]; then
-      #patch -p1 < ./patches/LEDE-MIPS24Kc+PCI+FPU_EMU-4.1.patch
-      patch -p1 < ./patches/LEDE-MIPS24Kc+PCI+FPU_EMU-4.4.patch
-  fi
-  #COPY CONFIG FILE
-  #cp lede-yun-minimum.config-4.1 .config
-  cp lede-yun-minimum-4.4.config .config
 fi
 
 make oldconfig
