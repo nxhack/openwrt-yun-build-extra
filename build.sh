@@ -2,9 +2,6 @@
 
 BUILD_DATE=`date +%Y%m%d-%H%M%S`
 
-#CHECK LEDE REPOSTORY
-IS_LEDE=`fgrep 'LEDE Configuration' Config.in`
-
 #CREATE BACKUP DIRECTORY
 if [ ! -e 'backups' ]; then
     mkdir backups
@@ -22,7 +19,7 @@ fi
 
 #INIT KERNEL CONFIG
 if [ ! -e '.config' ]; then
-  if [ -n "${IS_LEDE}" ]; then
+  if [ -n "`fgrep 'LEDE Configuration' Config.in`" ]; then
     cp lede-yun-minimum-4.4.config .config
   else
     cp openwrt-yun-minimum.config .config
@@ -85,7 +82,7 @@ sed -i -e s/^RNGD_AMOUNT=4000/RNGD_AMOUNT=4096/ ./feeds/packages/utils/rng-tools
 mv .config ./backups/feeds-config.${BUILD_DATE}-$$
 
 # PATCH KERNEL CONFIG & COPY CONFIG FILE
-if [ -n "${IS_LEDE}" ]; then
+if [ -n "`fgrep 'LEDE Configuration' Config.in`" ]; then
   if [ -z "`git status|fgrep ar71xx/Makefile`" ]; then
       patch -p1 < ./patches/LEDE-MIPS24Kc+PCI+FPU_EMU-4.4.patch
   fi
