@@ -87,10 +87,8 @@ mv .config ./backups/feeds-config.${BUILD_DATE}-$$
 # PATCH KERNEL CONFIG & COPY CONFIG FILE
 if [ -n "${IS_LEDE}" ]; then
   if [ -z "`git status|fgrep ar71xx/Makefile`" ]; then
-      #patch -p1 < ./patches/LEDE-MIPS24Kc+PCI+FPU_EMU-4.1.patch
       patch -p1 < ./patches/LEDE-MIPS24Kc+PCI+FPU_EMU-4.4.patch
   fi
-  #cp lede-yun-minimum.config-4.1 .config
   cp lede-yun-minimum-4.4.config .config
 else
   if [ -z "`git status|fgrep ar71xx/config-4.1`" ]; then
