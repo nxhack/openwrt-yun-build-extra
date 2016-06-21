@@ -10,6 +10,7 @@ Extra files and scripts for building OpenWrt-Yun.
 
 See:
 - [OpenWrt license](http://wiki.openwrt.org/about/license)
+- [LEDE Project license](https://git.lede-project.org/?p=source.git;a=blob_plain;f=LICENSE;hb=HEAD)
 - [OpenWrt Yún license](https://github.com/arduino/openwrt-yun/blob/master/LICENSE)
 - [OpenWrt Yún license](https://github.com/RedSnake64/openwrt-yun/blob/15.05/LICENSE)
 
@@ -21,10 +22,9 @@ See:
 ```bash
 mkdir Build_Path_Some_Where
 cd Build_Path_Some_Where
-#git clone --depth=1 https://git.openwrt.org/openwrt.git
 git clone --depth=1 https://git.lede-project.org/source.git
 git clone --depth=1 --branch master --single-branch https://github.com/nxhack/openwrt-yun-build-extra.git
-cd openwrt
+cd source
 ln -s ../openwrt-yun-build-extra/* .
 ./build.sh
 ```
