@@ -116,11 +116,8 @@ if [ -n "`fgrep 'LEDE Configuration' Config.in`" ]; then
   fi
   cp lede-yun-minimum-4.4.config .config
 else
-  if [ -z "`git status|fgrep ar71xx/config-4.1`" ]; then
-      patch -p1 < ./patches/000-MIPS24Kc+PCI+FPU_EMU.patch
-  fi
   if [ -z "`git status|fgrep ar71xx/Makefile`" ]; then
-      patch -p1 < ./patches/000-TARGET_CPU_TYPE.patch
+      patch -p1 < ./patches/OpenWrt-MIPS24Kc+PCI+FPU_EMU.patch
   fi
   cp openwrt-yun-minimum.config .config
 fi
