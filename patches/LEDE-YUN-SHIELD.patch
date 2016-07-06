@@ -522,7 +522,7 @@ index f40b4a4..55c9e22 100644
  	ATH79_MACH_AP121,		/* Atheros AP121 reference board */
  	ATH79_MACH_AP121_MINI,		/* Atheros AP121-MINI reference board */
 diff --git a/target/linux/ar71xx/image/legacy-devices.mk b/target/linux/ar71xx/image/legacy-devices.mk
-index f5519f7..f275193 100644
+index f5519f7..b824da0 100644
 --- a/target/linux/ar71xx/image/legacy-devices.mk
 +++ b/target/linux/ar71xx/image/legacy-devices.mk
 @@ -56,6 +56,18 @@ define LegacyDevice/Yun
@@ -536,7 +536,7 @@ index f5519f7..f275193 100644
 +LEGACY_DEVICES += Yun_Shield
 +
 +define LegacyDevice/Yun_compat
-+	DEVICE_TITLE := All Arduino Yun compatible boards
++	DEVICE_TITLE := Arduino Yun All compatible boards
 +	DEVICE_PACKAGES := kmod-usb-core kmod-usb2
 +endef
 +LEGACY_DEVICES += Yun_compat
