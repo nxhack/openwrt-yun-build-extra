@@ -1108,3 +1108,20 @@ index 1d8898a..52754a9 100644
  
  $(eval $(call MultiProfile,Minimal,$(SINGLE_PROFILES)))
  $(eval $(call MultiProfile,Madwifi,EAP7660D WP543))
+diff --git a/target/linux/ar71xx/patches-4.4/820-MIPS-ath79-add_gpio_function2_setup.patch b/target/linux/ar71xx/patches-4.4/820-MIPS-ath79-add_gpio_function2_setup.patch
+index f7f6b72..ebf84d5 100644
+--- a/target/linux/ar71xx/patches-4.4/820-MIPS-ath79-add_gpio_function2_setup.patch
++++ b/target/linux/ar71xx/patches-4.4/820-MIPS-ath79-add_gpio_function2_setup.patch
+@@ -56,10 +56,11 @@ functions on the Arduino Yun.
+  
+  #define AR934X_GPIO_REG_OUT_FUNC0	0x2c
+  #define AR934X_GPIO_REG_OUT_FUNC1	0x30
+-@@ -971,6 +972,8 @@
++@@ -971,6 +972,9 @@
+  #define AR724X_GPIO_FUNC_UART_EN		BIT(1)
+  #define AR724X_GPIO_FUNC_JTAG_DISABLE		BIT(0)
+  
+++#define AR933X_GPIO_FUNC2_WPS_DISABLE		BIT(8)
+ +#define AR933X_GPIO_FUNC2_JUMPSTART_DISABLE 	BIT(9)
+ +
+  #define AR913X_GPIO_FUNC_WMAC_LED_EN		BIT(22)
