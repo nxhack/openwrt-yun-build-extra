@@ -897,10 +897,10 @@ index f8b0b2b..413fa32 100644
  obj-$(CONFIG_ATH79_MACH_AP121)		+= mach-ap121.o
  obj-$(CONFIG_ATH79_MACH_AP132)		+= mach-ap132.o
 diff --git a/target/linux/ar71xx/files/arch/mips/ath79/mach-arduino-yun-shield.c b/target/linux/ar71xx/files/arch/mips/ath79/mach-arduino-yun-shield.c
-index e69de29..82349f9 100644
+index e69de29..cea3904 100644
 --- a/target/linux/ar71xx/files/arch/mips/ath79/mach-arduino-yun-shield.c
 +++ b/target/linux/ar71xx/files/arch/mips/ath79/mach-arduino-yun-shield.c
-@@ -0,0 +1,139 @@
+@@ -0,0 +1,145 @@
 +/*
 + *  Yun Shield support
 + *
@@ -921,12 +921,11 @@ index e69de29..82349f9 100644
 +#include "machtypes.h"
 +#include <asm/mach-ath79/ar71xx_regs.h>
 +#include <asm/mach-ath79/ath79.h>
++#include <linux/gpio.h>
 +#include "common.h"
-+#include "gpio.h"
-+#include "linux/gpio.h"
 +
 +#define DS_GPIO_LED_READY		13
-+#define DS_GPIO_LED_WAN			1
++#define DS_GPIO_LED_WAN		1
 +#define DS_GPIO_LED_WLAN		0
 +#define DS_GPIO_LED_USER		15
 +
@@ -1010,6 +1009,13 @@ index e69de29..82349f9 100644
 +					ds_gpio_keys);
 +	ath79_register_usb();
 +
++	/* use the swtich_led directly form sysfs */
++	ath79_gpio_function_disable(AR933X_GPIO_FUNC_ETH_SWITCH_LED0_EN |
++				    AR933X_GPIO_FUNC_ETH_SWITCH_LED1_EN |
++				    AR933X_GPIO_FUNC_ETH_SWITCH_LED2_EN |
++				    AR933X_GPIO_FUNC_ETH_SWITCH_LED3_EN |
++				    AR933X_GPIO_FUNC_ETH_SWITCH_LED4_EN);
++
 +	//Disable the Function for some pins to have GPIO functionality active
 +	// GPIO6-7-8 and GPIO11
 +	ath79_gpio_function_setup(AR933X_GPIO_FUNC_JTAG_DISABLE | AR933X_GPIO_FUNC_I2S_MCK_EN, 0);
@@ -1028,9 +1034,9 @@ index e69de29..82349f9 100644
 +		printk("Error setting GPIO OE\n");
 +
 +        if (gpio_request_one(DS_GPIO_UART_ENA,
-+                 GPIOF_OUT_INIT_HIGH | GPIOF_EXPORT_DIR_FIXED,
-+                 "UART-ENA") != 0)
-+                printk("Error setting GPIO Uart Enable\n");
++		 GPIOF_OUT_INIT_HIGH | GPIOF_EXPORT_DIR_FIXED,
++		 "UART-ENA") != 0)
++		printk("Error setting GPIO Uart Enable\n");
 +
 +	// enable OE of level shifter
 +        if (gpio_request_one(DS_GPIO_OE2,
