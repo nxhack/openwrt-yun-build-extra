@@ -1059,10 +1059,10 @@ index f40b4a4..55c9e22 100644
  	ATH79_MACH_AP121,		/* Atheros AP121 reference board */
  	ATH79_MACH_AP121_MINI,		/* Atheros AP121-MINI reference board */
 diff --git a/target/linux/ar71xx/generic/profiles/arduino.mk b/target/linux/ar71xx/generic/profiles/arduino.mk
-index 8ae5054..421042d 100644
+index 8ae5054..265fd07 100644
 --- a/target/linux/ar71xx/generic/profiles/arduino.mk
 +++ b/target/linux/ar71xx/generic/profiles/arduino.mk
-@@ -17,3 +17,25 @@ endef
+@@ -17,3 +17,13 @@ endef
  
  $(eval $(call Profile,Yun))
  
@@ -1072,24 +1072,12 @@ index 8ae5054..421042d 100644
 +endef
 +
 +define Profile/Yun_Shield/Description
-+	Package set optimized for the Yun Shield.
++	Package set optimized for the Arduino/Genuino Yun Shield.
 +endef
 +
 +$(eval $(call Profile,Yun_Shield))
-+
-+define Profile/Yun_compat
-+	NAME:=Arduino/Genuino Yun All compatible boards
-+	PACKAGES:=kmod-usb-core kmod-usb2
-+endef
-+
-+define Profile/Yun/Description
-+	Packages for the Arduino Yun, Yun Shield.
-+endef
-+
-+$(eval $(call Profile,Yun_compat))
-+
 diff --git a/target/linux/ar71xx/image/legacy.mk b/target/linux/ar71xx/image/legacy.mk
-index 1d8898a..52754a9 100644
+index 1d8898a..4ed3dc6 100644
 --- a/target/linux/ar71xx/image/legacy.mk
 +++ b/target/linux/ar71xx/image/legacy.mk
 @@ -1013,6 +1013,7 @@ $(eval $(call SingleProfile,AthLzma,64k,WPJ558_16M,wpj558-16M,WPJ558,ttyS0,11520
@@ -1104,7 +1092,7 @@ index 1d8898a..52754a9 100644
  $(eval $(call MultiProfile,WPJ531,WPJ531_16M))
  $(eval $(call MultiProfile,WPJ558,WPJ558_16M))
  $(eval $(call MultiProfile,Yun,YUN_16M YUN_8M))
-+$(eval $(call MultiProfile,Yun_compat,YUN_16M YUN_8M YUN_SHIELD))
++$(eval $(call MultiProfile,Yun_Shield,YUN_SHIELD))
  
  $(eval $(call MultiProfile,Minimal,$(SINGLE_PROFILES)))
  $(eval $(call MultiProfile,Madwifi,EAP7660D WP543))
