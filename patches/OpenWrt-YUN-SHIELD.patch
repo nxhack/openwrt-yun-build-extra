@@ -1059,7 +1059,7 @@ index f40b4a4..55c9e22 100644
  	ATH79_MACH_AP121,		/* Atheros AP121 reference board */
  	ATH79_MACH_AP121_MINI,		/* Atheros AP121-MINI reference board */
 diff --git a/target/linux/ar71xx/generic/profiles/arduino.mk b/target/linux/ar71xx/generic/profiles/arduino.mk
-index 8ae5054..85f3b97 100644
+index 8ae5054..421042d 100644
 --- a/target/linux/ar71xx/generic/profiles/arduino.mk
 +++ b/target/linux/ar71xx/generic/profiles/arduino.mk
 @@ -17,3 +17,25 @@ endef
@@ -1067,7 +1067,7 @@ index 8ae5054..85f3b97 100644
  $(eval $(call Profile,Yun))
  
 +define Profile/Yun_Shield
-+	NAME:=Yun Shield
++	NAME:=Arduino/Genuino Yun Shield
 +	PACKAGES:=kmod-usb-core kmod-usb2
 +endef
 +
@@ -1078,7 +1078,7 @@ index 8ae5054..85f3b97 100644
 +$(eval $(call Profile,Yun_Shield))
 +
 +define Profile/Yun_compat
-+	NAME:=All Arduino Yun compatible boards
++	NAME:=Arduino/Genuino Yun All compatible boards
 +	PACKAGES:=kmod-usb-core kmod-usb2
 +endef
 +

@@ -672,27 +672,27 @@ index f40b4a4..55c9e22 100644
  	ATH79_MACH_AP121,		/* Atheros AP121 reference board */
  	ATH79_MACH_AP121_MINI,		/* Atheros AP121-MINI reference board */
 diff --git a/target/linux/ar71xx/image/legacy-devices.mk b/target/linux/ar71xx/image/legacy-devices.mk
-index f5519f7..b824da0 100644
+index f5519f7..0545c19 100644
 --- a/target/linux/ar71xx/image/legacy-devices.mk
 +++ b/target/linux/ar71xx/image/legacy-devices.mk
-@@ -56,6 +56,18 @@ define LegacyDevice/Yun
+@@ -50,6 +50,18 @@ define LegacyDevice/ALL0315N
  endef
- LEGACY_DEVICES += Yun
+ LEGACY_DEVICES += ALL0315N
  
-+define LegacyDevice/Yun_Shield
-+	DEVICE_TITLE := Arduino Yun Shield
-+	DEVICE_PACKAGES := kmod-usb-core kmod-usb2
-+endef
-+LEGACY_DEVICES += Yun_Shield
-+
 +define LegacyDevice/Yun_compat
-+	DEVICE_TITLE := Arduino Yun All compatible boards
++	DEVICE_TITLE := Arduino/Genuino Yun All compatible boards
 +	DEVICE_PACKAGES := kmod-usb-core kmod-usb2
 +endef
 +LEGACY_DEVICES += Yun_compat
 +
- define LegacyDevice/AP113
- 	DEVICE_TITLE := Atheros AP113 reference board
++define LegacyDevice/Yun_Shield
++	DEVICE_TITLE := Arduino/Genuino Yun Shield
++	DEVICE_PACKAGES := kmod-usb-core kmod-usb2
++endef
++LEGACY_DEVICES += Yun_Shield
++
+ define LegacyDevice/Yun
+ 	DEVICE_TITLE := Arduino Yun based on Atheros AR9331
  	DEVICE_PACKAGES := kmod-usb-core kmod-usb2
 diff --git a/target/linux/ar71xx/image/legacy.mk b/target/linux/ar71xx/image/legacy.mk
 index 00c62e2..d9d6da9 100644
