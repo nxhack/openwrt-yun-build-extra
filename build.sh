@@ -107,7 +107,9 @@ sed -i -e s/^START=98/START=48/ ./feeds/packages/utils/rng-tools/files/rngd.init
 sed -i -e s/^RNGD_AMOUNT=4000/RNGD_AMOUNT=4096/ ./feeds/packages/utils/rng-tools/files/rngd.init
 
 # BACKUP FEEDS CONFIG
-mv .config ./backups/feeds-config.${BUILD_DATE}-$$
+if [ -e '.config' ]; then
+    mv .config ./backups/feeds-config.${BUILD_DATE}-$$
+fi
 
 # PATCH KERNEL CONFIG & COPY CONFIG FILE
 if [ -n "`fgrep 'LEDE Configuration' Config.in`" ]; then
