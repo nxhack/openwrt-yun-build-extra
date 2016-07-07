@@ -1077,7 +1077,7 @@ index 8ae5054..265fd07 100644
 +
 +$(eval $(call Profile,Yun_Shield))
 diff --git a/target/linux/ar71xx/image/legacy.mk b/target/linux/ar71xx/image/legacy.mk
-index 1d8898a..67eb124 100644
+index 1d8898a..4ed3dc6 100644
 --- a/target/linux/ar71xx/image/legacy.mk
 +++ b/target/linux/ar71xx/image/legacy.mk
 @@ -1013,6 +1013,7 @@ $(eval $(call SingleProfile,AthLzma,64k,WPJ558_16M,wpj558-16M,WPJ558,ttyS0,11520
@@ -1088,6 +1088,14 @@ index 1d8898a..67eb124 100644
  
  $(eval $(call SingleProfile,Belkin,64k,F9K1115V2,f9k1115v2,F9K1115V2,ttyS0,115200,$$(f9k1115v2_mtdlayout),BR-6679BAC))
  
+@@ -1141,6 +1142,7 @@ $(eval $(call MultiProfile,WPJ344,WPJ344_16M))
+ $(eval $(call MultiProfile,WPJ531,WPJ531_16M))
+ $(eval $(call MultiProfile,WPJ558,WPJ558_16M))
+ $(eval $(call MultiProfile,Yun,YUN_16M YUN_8M))
++$(eval $(call MultiProfile,Yun_Shield,YUN_SHIELD))
+ 
+ $(eval $(call MultiProfile,Minimal,$(SINGLE_PROFILES)))
+ $(eval $(call MultiProfile,Madwifi,EAP7660D WP543))
 diff --git a/target/linux/ar71xx/patches-4.1/820-MIPS-ath79-add_gpio_function2_setup.patch b/target/linux/ar71xx/patches-4.1/820-MIPS-ath79-add_gpio_function2_setup.patch
 index 5c90057..ef58e80 100644
 --- a/target/linux/ar71xx/patches-4.1/820-MIPS-ath79-add_gpio_function2_setup.patch
