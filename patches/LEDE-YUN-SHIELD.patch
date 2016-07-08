@@ -670,13 +670,19 @@ index f40b4a4..55c9e22 100644
  	ATH79_MACH_AP121,		/* Atheros AP121 reference board */
  	ATH79_MACH_AP121_MINI,		/* Atheros AP121-MINI reference board */
 diff --git a/target/linux/ar71xx/image/legacy-devices.mk b/target/linux/ar71xx/image/legacy-devices.mk
-index f5519f7..3fe017d 100644
+index f5519f7..f513fb8 100644
 --- a/target/linux/ar71xx/image/legacy-devices.mk
 +++ b/target/linux/ar71xx/image/legacy-devices.mk
-@@ -50,6 +50,12 @@ define LegacyDevice/ALL0315N
+@@ -50,6 +50,18 @@ define LegacyDevice/ALL0315N
  endef
  LEGACY_DEVICES += ALL0315N
  
++define LegacyDevice/YUNCOMPAT
++	DEVICE_TITLE := Arduino/Genuino Yun compatible boards
++	DEVICE_PACKAGES := kmod-usb-core kmod-usb2
++endef
++LEGACY_DEVICES += YUNCOMPAT
++
 +define LegacyDevice/YUNSHIELD
 +	DEVICE_TITLE := Arduino/Genuino Yun Shield
 +	DEVICE_PACKAGES := kmod-usb-core kmod-usb2
@@ -687,7 +693,7 @@ index f5519f7..3fe017d 100644
  	DEVICE_TITLE := Arduino Yun based on Atheros AR9331
  	DEVICE_PACKAGES := kmod-usb-core kmod-usb2
 diff --git a/target/linux/ar71xx/image/legacy.mk b/target/linux/ar71xx/image/legacy.mk
-index 00c62e2..8a146b0 100644
+index 00c62e2..6f18601 100644
 --- a/target/linux/ar71xx/image/legacy.mk
 +++ b/target/linux/ar71xx/image/legacy.mk
 @@ -978,6 +978,7 @@ $(eval $(call SingleProfile,AthLzma,64k,WPJ558_16M,wpj558-16M,WPJ558,ttyS0,11520
@@ -698,6 +704,14 @@ index 00c62e2..8a146b0 100644
  
  $(eval $(call SingleProfile,Belkin,64k,F9K1115V2,f9k1115v2,F9K1115V2,ttyS0,115200,$$(f9k1115v2_mtdlayout),BR-6679BAC))
  
+@@ -1101,6 +1102,7 @@ $(eval $(call MultiProfile,WPJ344,WPJ344_16M))
+ $(eval $(call MultiProfile,WPJ531,WPJ531_16M))
+ $(eval $(call MultiProfile,WPJ558,WPJ558_16M))
+ $(eval $(call MultiProfile,Yun,YUN_16M YUN_8M))
++$(eval $(call MultiProfile,YUNCOMPAT,YUN_16M YUNSHIELD))
+ 
+ $(eval $(call MultiProfile,Minimal,$(SINGLE_PROFILES)))
+ $(eval $(call MultiProfile,Madwifi,EAP7660D WP543))
 diff --git a/target/linux/ar71xx/patches-4.4/820-MIPS-ath79-add_gpio_function2_setup.patch b/target/linux/ar71xx/patches-4.4/820-MIPS-ath79-add_gpio_function2_setup.patch
 index f7f6b72..ebf84d5 100644
 --- a/target/linux/ar71xx/patches-4.4/820-MIPS-ath79-add_gpio_function2_setup.patch
