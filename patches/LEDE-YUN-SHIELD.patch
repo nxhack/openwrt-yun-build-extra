@@ -510,10 +510,10 @@ index f8b0b2b..413fa32 100644
  obj-$(CONFIG_ATH79_MACH_AP121)		+= mach-ap121.o
  obj-$(CONFIG_ATH79_MACH_AP132)		+= mach-ap132.o
 diff --git a/target/linux/ar71xx/files/arch/mips/ath79/mach-arduino-yun-shield.c b/target/linux/ar71xx/files/arch/mips/ath79/mach-arduino-yun-shield.c
-index e69de29..cea3904 100644
+index e69de29..cfc84fa 100644
 --- a/target/linux/ar71xx/files/arch/mips/ath79/mach-arduino-yun-shield.c
 +++ b/target/linux/ar71xx/files/arch/mips/ath79/mach-arduino-yun-shield.c
-@@ -0,0 +1,145 @@
+@@ -0,0 +1,143 @@
 +/*
 + *  Yun Shield support
 + *
@@ -544,7 +544,8 @@ index e69de29..cea3904 100644
 +
 +#define DS_GPIO_OE			22 /*SPI*/
 +#define DS_GPIO_AVR_RESET		12
-+#define DS_GPIO_OE2                     16 /*HANDSHAKE */
++
++#define DS_GPIO_OE2			16 /*HANDSHAKE */
 +#define DS_GPIO_UART_ENA		17
 +#define DS_GPIO_CONF_BTN		11
 +
@@ -642,19 +643,16 @@ index e69de29..cea3904 100644
 +
 +	// enable OE of level shifter
 +	if (gpio_request_one(DS_GPIO_OE,
-+		 GPIOF_OUT_INIT_LOW | GPIOF_EXPORT_DIR_FIXED,
-+		 "OE-1") != 0)
++	    GPIOF_OUT_INIT_LOW | GPIOF_EXPORT_DIR_FIXED, "OE-1") != 0)
 +		printk("Error setting GPIO OE\n");
 +
-+        if (gpio_request_one(DS_GPIO_UART_ENA,
-+		 GPIOF_OUT_INIT_HIGH | GPIOF_EXPORT_DIR_FIXED,
-+		 "UART-ENA") != 0)
++	if (gpio_request_one(DS_GPIO_UART_ENA,
++	    GPIOF_OUT_INIT_HIGH | GPIOF_EXPORT_DIR_FIXED, "UART-ENA") != 0)
 +		printk("Error setting GPIO Uart Enable\n");
 +
 +	// enable OE of level shifter
-+        if (gpio_request_one(DS_GPIO_OE2,
-+		GPIOF_OUT_INIT_LOW | GPIOF_EXPORT_DIR_FIXED,
-+		"OE-2") != 0)
++	if (gpio_request_one(DS_GPIO_OE2,
++	    GPIOF_OUT_INIT_LOW | GPIOF_EXPORT_DIR_FIXED, "OE-2") != 0)
 +		printk("Error setting GPIO OE2\n");
 +}
 +
