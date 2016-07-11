@@ -1,5 +1,5 @@
 diff --git a/target/linux/ar71xx/Makefile b/target/linux/ar71xx/Makefile
-index 24d7d5c..62209a5 100644
+index 594b48e..c0d867c 100644
 --- a/target/linux/ar71xx/Makefile
 +++ b/target/linux/ar71xx/Makefile
 @@ -10,7 +10,7 @@ ARCH:=mips
@@ -10,9 +10,9 @@ index 24d7d5c..62209a5 100644
 +CPU_TYPE=24kc
  SUBTARGETS:=generic nand mikrotik
  
- KERNEL_PATCHVER:=4.1
+ KERNEL_PATCHVER:=4.4
 diff --git a/target/linux/ar71xx/base-files/etc/board.d/01_leds b/target/linux/ar71xx/base-files/etc/board.d/01_leds
-index 39b21ca..4b239da 100755
+index 6936b8c..d89eae7 100755
 --- a/target/linux/ar71xx/base-files/etc/board.d/01_leds
 +++ b/target/linux/ar71xx/base-files/etc/board.d/01_leds
 @@ -55,6 +55,11 @@ arduino-yun)
@@ -28,10 +28,10 @@ index 39b21ca..4b239da 100755
  	ucidef_set_led_usbdev "usb" "USB" "ap113:green:usb" "1-1"
  	;;
 diff --git a/target/linux/ar71xx/base-files/etc/board.d/02_network b/target/linux/ar71xx/base-files/etc/board.d/02_network
-index 67adf33..3760900 100755
+index 1ed593c..c0ac606 100755
 --- a/target/linux/ar71xx/base-files/etc/board.d/02_network
 +++ b/target/linux/ar71xx/base-files/etc/board.d/02_network
-@@ -380,6 +380,7 @@ cap324)
+@@ -382,6 +382,7 @@ cap324)
  	;;
  
  arduino-yun |\
@@ -40,7 +40,7 @@ index 67adf33..3760900 100755
  dir-505-a1)
  	ucidef_set_interface_lan "eth1"
 diff --git a/target/linux/ar71xx/base-files/lib/ar71xx.sh b/target/linux/ar71xx/base-files/lib/ar71xx.sh
-index d71b8ba..776de1a 100755
+index 5b81f73..86fa5ac 100755
 --- a/target/linux/ar71xx/base-files/lib/ar71xx.sh
 +++ b/target/linux/ar71xx/base-files/lib/ar71xx.sh
 @@ -386,6 +386,9 @@ ar71xx_board_detect() {
@@ -54,7 +54,7 @@ index d71b8ba..776de1a 100755
  		name="ap113"
  		;;
 diff --git a/target/linux/ar71xx/base-files/lib/upgrade/platform.sh b/target/linux/ar71xx/base-files/lib/upgrade/platform.sh
-index 9f8a14b..3511a20 100755
+index 313e2e6..2ac4abb 100755
 --- a/target/linux/ar71xx/base-files/lib/upgrade/platform.sh
 +++ b/target/linux/ar71xx/base-files/lib/upgrade/platform.sh
 @@ -181,6 +181,7 @@ platform_check_image() {
@@ -92,7 +92,7 @@ index 5939891..e7377b1 100644
  CONFIG_MIPS_L1_CACHE_SHIFT=5
  CONFIG_MIPS_MACHINE=y
 diff --git a/target/linux/ar71xx/config-4.4 b/target/linux/ar71xx/config-4.4
-index 57ac5d8..12b993a 100644
+index 79d703b..8559f49 100644
 --- a/target/linux/ar71xx/config-4.4
 +++ b/target/linux/ar71xx/config-4.4
 @@ -52,6 +52,7 @@ CONFIG_ATH79_MACH_AP83=y
@@ -103,7 +103,7 @@ index 57ac5d8..12b993a 100644
  CONFIG_ATH79_MACH_AW_NR580=y
  CONFIG_ATH79_MACH_BHU_BXU2000N2_A=y
  CONFIG_ATH79_MACH_BSB=y
-@@ -319,6 +320,7 @@ CONFIG_MIPS_CLOCK_VSYSCALL=y
+@@ -321,6 +322,7 @@ CONFIG_MIPS_CLOCK_VSYSCALL=y
  CONFIG_MIPS_CMDLINE_FROM_BOOTLOADER=y
  # CONFIG_MIPS_CMDLINE_FROM_DTB is not set
  # CONFIG_MIPS_ELF_APPENDED_DTB is not set
@@ -112,7 +112,7 @@ index 57ac5d8..12b993a 100644
  CONFIG_MIPS_L1_CACHE_SHIFT=5
  CONFIG_MIPS_MACHINE=y
 diff --git a/target/linux/ar71xx/files/arch/mips/ath79/Kconfig.openwrt b/target/linux/ar71xx/files/arch/mips/ath79/Kconfig.openwrt
-index 0fb2df2..203f464 100644
+index 52b9b55..f8a5a7a 100644
 --- a/target/linux/ar71xx/files/arch/mips/ath79/Kconfig.openwrt
 +++ b/target/linux/ar71xx/files/arch/mips/ath79/Kconfig.openwrt
 @@ -103,6 +103,19 @@ config ATH79_MACH_ARDUINO_YUN
@@ -136,7 +136,7 @@ index 0fb2df2..203f464 100644
  	bool "Atheros AP113 board support"
  	select SOC_AR724X
 diff --git a/target/linux/ar71xx/files/arch/mips/ath79/Makefile b/target/linux/ar71xx/files/arch/mips/ath79/Makefile
-index 6144e29..cf0d7c6 100644
+index f8b0b2b..413fa32 100644
 --- a/target/linux/ar71xx/files/arch/mips/ath79/Makefile
 +++ b/target/linux/ar71xx/files/arch/mips/ath79/Makefile
 @@ -47,6 +47,7 @@ obj-$(CONFIG_ATH79_MACH_ANTMINER_S1)+= mach-antminer-s1.o
@@ -296,7 +296,7 @@ index e69de29..cfc84fa 100644
 +
 +MIPS_MACHINE(ATH79_MACH_ARDUINO_YUN_SHIELD, "Yun_Shield", "Yun Shield", ds_setup);
 diff --git a/target/linux/ar71xx/files/arch/mips/ath79/machtypes.h b/target/linux/ar71xx/files/arch/mips/ath79/machtypes.h
-index 4879255..f8cceab 100644
+index f40b4a4..55c9e22 100644
 --- a/target/linux/ar71xx/files/arch/mips/ath79/machtypes.h
 +++ b/target/linux/ar71xx/files/arch/mips/ath79/machtypes.h
 @@ -27,6 +27,7 @@ enum ath79_mach_type {
@@ -336,19 +336,19 @@ index 8ae5054..1122030 100644
 +endef
 +
 +$(eval $(call Profile,YUNCOMPAT))
-diff --git a/target/linux/ar71xx/image/Makefile b/target/linux/ar71xx/image/Makefile
-index bc8a4a8..72b1a6f 100644
---- a/target/linux/ar71xx/image/Makefile
-+++ b/target/linux/ar71xx/image/Makefile
-@@ -2435,6 +2435,7 @@ $(eval $(call SingleProfile,AthLzma,64k,WPJ531_16M,wpj531-16M,WPJ531,ttyS0,11520
- $(eval $(call SingleProfile,AthLzma,64k,WPJ558_16M,wpj558-16M,WPJ558,ttyS0,115200,$$(wpj558_mtdlayout_16M),KRuImage,65536))
+diff --git a/target/linux/ar71xx/image/legacy.mk b/target/linux/ar71xx/image/legacy.mk
+index 1d8898a..fc7eb00 100644
+--- a/target/linux/ar71xx/image/legacy.mk
++++ b/target/linux/ar71xx/image/legacy.mk
+@@ -1013,6 +1013,7 @@ $(eval $(call SingleProfile,AthLzma,64k,WPJ558_16M,wpj558-16M,WPJ558,ttyS0,11520
+ $(eval $(call SingleProfile,AthLzma,64k,WRTNODE2Q,wrtnode2q,WRTNODE2Q,ttyS0,115200,$$(wrtnode2q_mtdlayout),KRuImage))
  $(eval $(call SingleProfile,AthLzma,64k,YUN_8M,yun-8M,Yun,ttyATH0,250000,$$(yun_mtdlayout_8M),RKuImage))
  $(eval $(call SingleProfile,AthLzma,64k,YUN_16M,yun-16M,Yun,ttyATH0,250000,$$(yun_mtdlayout_16M),RKuImage))
 +$(eval $(call SingleProfile,AthLzma,64k,YUNSHIELD,yun-shield,Yun_Shield,ttyATH0,250000,$$(yun_mtdlayout_16M),RKuImage))
  
  $(eval $(call SingleProfile,Belkin,64k,F9K1115V2,f9k1115v2,F9K1115V2,ttyS0,115200,$$(f9k1115v2_mtdlayout),BR-6679BAC))
  
-@@ -2565,6 +2566,7 @@ $(eval $(call MultiProfile,WPJ344,WPJ344_16M))
+@@ -1141,6 +1142,7 @@ $(eval $(call MultiProfile,WPJ344,WPJ344_16M))
  $(eval $(call MultiProfile,WPJ531,WPJ531_16M))
  $(eval $(call MultiProfile,WPJ558,WPJ558_16M))
  $(eval $(call MultiProfile,Yun,YUN_16M YUN_8M))
