@@ -66,7 +66,7 @@ index 313e2e6..2ac4abb 100755
  	ap121 | \
  	ap121-mini | \
 diff --git a/target/linux/ar71xx/config-4.1 b/target/linux/ar71xx/config-4.1
-index 5939891..e7377b1 100644
+index 5939891..0f7657d 100644
 --- a/target/linux/ar71xx/config-4.1
 +++ b/target/linux/ar71xx/config-4.1
 @@ -49,6 +49,7 @@ CONFIG_ATH79_MACH_AP83=y
@@ -77,13 +77,7 @@ index 5939891..e7377b1 100644
  CONFIG_ATH79_MACH_AW_NR580=y
  CONFIG_ATH79_MACH_BHU_BXU2000N2_A=y
  CONFIG_ATH79_MACH_BSB=y
-@@ -291,11 +292,13 @@ CONFIG_IRQ_DOMAIN=y
- CONFIG_IRQ_FORCED_THREADING=y
- CONFIG_IRQ_WORK=y
- CONFIG_LEDS_GPIO=y
-+CONFIG_LEDS_NU801=y
- # CONFIG_LEDS_WNDR3700_USB is not set
- CONFIG_MARVELL_PHY=y
+@@ -296,6 +297,7 @@ CONFIG_MARVELL_PHY=y
  CONFIG_MDIO_BOARDINFO=y
  CONFIG_MICREL_PHY=y
  CONFIG_MIPS=y
@@ -148,7 +142,7 @@ index f8b0b2b..413fa32 100644
  obj-$(CONFIG_ATH79_MACH_AP121)		+= mach-ap121.o
  obj-$(CONFIG_ATH79_MACH_AP132)		+= mach-ap132.o
 diff --git a/target/linux/ar71xx/files/arch/mips/ath79/mach-arduino-yun-shield.c b/target/linux/ar71xx/files/arch/mips/ath79/mach-arduino-yun-shield.c
-index e69de29..c55b2bd 100644
+index e69de29..8d74fed 100644
 --- a/target/linux/ar71xx/files/arch/mips/ath79/mach-arduino-yun-shield.c
 +++ b/target/linux/ar71xx/files/arch/mips/ath79/mach-arduino-yun-shield.c
 @@ -0,0 +1,147 @@
