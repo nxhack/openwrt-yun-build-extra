@@ -324,7 +324,7 @@ index 00c62e2..6f18601 100644
  $(eval $(call MultiProfile,WPJ531,WPJ531_16M))
  $(eval $(call MultiProfile,WPJ558,WPJ558_16M))
  $(eval $(call MultiProfile,Yun,YUN_16M YUN_8M))
-+$(eval $(call MultiProfile,YUNCOMPAT,YUN_16M YUNSHIELD))
++$(eval $(call MultiProfile,YUNCOMPAT,YUN_16M YUN_8M YUNSHIELD))
  
  $(eval $(call MultiProfile,Minimal,$(SINGLE_PROFILES)))
  $(eval $(call MultiProfile,Madwifi,EAP7660D WP543))
