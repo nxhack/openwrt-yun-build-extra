@@ -243,7 +243,7 @@ index e69de29..c55b2bd 100644
 +				    AR933X_GPIO_FUNC_ETH_SWITCH_LED4_EN);
 +
 +	/*
-+	 * Disable the Function for some pins to have GPIO functionality
++	 * Disable the Function for some pins to have GPIO functionality active
 +	 * GPIO6-7-8 and GPIO11
 +	 */
 +	ath79_gpio_function_setup(AR933X_GPIO_FUNC_JTAG_DISABLE | AR933X_GPIO_FUNC_I2S_MCK_EN, 0);
