@@ -148,10 +148,10 @@ index f8b0b2b..413fa32 100644
  obj-$(CONFIG_ATH79_MACH_AP121)		+= mach-ap121.o
  obj-$(CONFIG_ATH79_MACH_AP132)		+= mach-ap132.o
 diff --git a/target/linux/ar71xx/files/arch/mips/ath79/mach-arduino-yun-shield.c b/target/linux/ar71xx/files/arch/mips/ath79/mach-arduino-yun-shield.c
-index e69de29..cfc84fa 100644
+index e69de29..c55b2bd 100644
 --- a/target/linux/ar71xx/files/arch/mips/ath79/mach-arduino-yun-shield.c
 +++ b/target/linux/ar71xx/files/arch/mips/ath79/mach-arduino-yun-shield.c
-@@ -0,0 +1,143 @@
+@@ -0,0 +1,147 @@
 +/*
 + *  Yun Shield support
 + *
@@ -268,27 +268,31 @@ index e69de29..cfc84fa 100644
 +				    AR933X_GPIO_FUNC_ETH_SWITCH_LED3_EN |
 +				    AR933X_GPIO_FUNC_ETH_SWITCH_LED4_EN);
 +
-+	//Disable the Function for some pins to have GPIO functionality active
-+	// GPIO6-7-8 and GPIO11
++	/*
++	 * Disable the Function for some pins to have GPIO functionality
++	 * GPIO6-7-8 and GPIO11
++	 */
 +	ath79_gpio_function_setup(AR933X_GPIO_FUNC_JTAG_DISABLE | AR933X_GPIO_FUNC_I2S_MCK_EN, 0);
 +	ath79_gpio_function2_setup(AR933X_GPIO_FUNC2_JUMPSTART_DISABLE | AR933X_GPIO_FUNC2_WPS_DISABLE, 0);
 +
 +	printk("Setting GPIO\n");
 +
++	/* Enable GPIO26 instead of MDC function */
 +	t = ath79_reset_rr(AR933X_RESET_REG_BOOTSTRAP);
 +	t |= AR933X_BOOTSTRAP_MDIO_GPIO_EN;
 +	ath79_reset_wr(AR933X_RESET_REG_BOOTSTRAP, t);
 +
-+	// enable OE of level shifter
++	/* enable OE of level shifter */
 +	if (gpio_request_one(DS_GPIO_OE,
 +	    GPIOF_OUT_INIT_LOW | GPIOF_EXPORT_DIR_FIXED, "OE-1") != 0)
 +		printk("Error setting GPIO OE\n");
 +
++	/* enable uart */
 +	if (gpio_request_one(DS_GPIO_UART_ENA,
 +	    GPIOF_OUT_INIT_HIGH | GPIOF_EXPORT_DIR_FIXED, "UART-ENA") != 0)
 +		printk("Error setting GPIO Uart Enable\n");
 +
-+	// enable OE of level shifter
++	/* enable OE2 of level shifter */
 +	if (gpio_request_one(DS_GPIO_OE2,
 +	    GPIOF_OUT_INIT_LOW | GPIOF_EXPORT_DIR_FIXED, "OE-2") != 0)
 +		printk("Error setting GPIO OE2\n");
