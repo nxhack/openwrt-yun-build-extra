@@ -1,16 +1,3 @@
-diff --git a/target/linux/ar71xx/Makefile b/target/linux/ar71xx/Makefile
-index 594b48e..c0d867c 100644
---- a/target/linux/ar71xx/Makefile
-+++ b/target/linux/ar71xx/Makefile
-@@ -10,7 +10,7 @@ ARCH:=mips
- BOARD:=ar71xx
- BOARDNAME:=Atheros AR7xxx/AR9xxx
- FEATURES:=mips16
--CPU_TYPE=34kc
-+CPU_TYPE=24kc
- SUBTARGETS:=generic nand mikrotik
- 
- KERNEL_PATCHVER:=4.4
 diff --git a/target/linux/ar71xx/base-files/etc/board.d/01_leds b/target/linux/ar71xx/base-files/etc/board.d/01_leds
 index 6936b8c..d89eae7 100755
 --- a/target/linux/ar71xx/base-files/etc/board.d/01_leds
@@ -77,14 +64,6 @@ index 5939891..0f7657d 100644
  CONFIG_ATH79_MACH_AW_NR580=y
  CONFIG_ATH79_MACH_BHU_BXU2000N2_A=y
  CONFIG_ATH79_MACH_BSB=y
-@@ -296,6 +297,7 @@ CONFIG_MARVELL_PHY=y
- CONFIG_MDIO_BOARDINFO=y
- CONFIG_MICREL_PHY=y
- CONFIG_MIPS=y
-+CONFIG_MIPS_FPU_EMULATOR=y
- # CONFIG_MIPS_HUGE_TLB_SUPPORT is not set
- CONFIG_MIPS_L1_CACHE_SHIFT=5
- CONFIG_MIPS_MACHINE=y
 diff --git a/target/linux/ar71xx/config-4.4 b/target/linux/ar71xx/config-4.4
 index 79d703b..8559f49 100644
 --- a/target/linux/ar71xx/config-4.4
@@ -97,14 +76,6 @@ index 79d703b..8559f49 100644
  CONFIG_ATH79_MACH_AW_NR580=y
  CONFIG_ATH79_MACH_BHU_BXU2000N2_A=y
  CONFIG_ATH79_MACH_BSB=y
-@@ -321,6 +322,7 @@ CONFIG_MIPS_CLOCK_VSYSCALL=y
- CONFIG_MIPS_CMDLINE_FROM_BOOTLOADER=y
- # CONFIG_MIPS_CMDLINE_FROM_DTB is not set
- # CONFIG_MIPS_ELF_APPENDED_DTB is not set
-+CONFIG_MIPS_FPU_EMULATOR=y
- # CONFIG_MIPS_HUGE_TLB_SUPPORT is not set
- CONFIG_MIPS_L1_CACHE_SHIFT=5
- CONFIG_MIPS_MACHINE=y
 diff --git a/target/linux/ar71xx/files/arch/mips/ath79/Kconfig.openwrt b/target/linux/ar71xx/files/arch/mips/ath79/Kconfig.openwrt
 index 52b9b55..f8a5a7a 100644
 --- a/target/linux/ar71xx/files/arch/mips/ath79/Kconfig.openwrt
