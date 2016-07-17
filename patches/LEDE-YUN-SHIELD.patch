@@ -1,5 +1,5 @@
 diff --git a/target/linux/ar71xx/base-files/etc/board.d/01_leds b/target/linux/ar71xx/base-files/etc/board.d/01_leds
-index 6936b8c..d89eae7 100755
+index 77bed5b..6952458 100755
 --- a/target/linux/ar71xx/base-files/etc/board.d/01_leds
 +++ b/target/linux/ar71xx/base-files/etc/board.d/01_leds
 @@ -55,6 +55,11 @@ arduino-yun)
@@ -15,7 +15,7 @@ index 6936b8c..d89eae7 100755
  	ucidef_set_led_usbdev "usb" "USB" "ap113:green:usb" "1-1"
  	;;
 diff --git a/target/linux/ar71xx/base-files/etc/board.d/02_network b/target/linux/ar71xx/base-files/etc/board.d/02_network
-index 1ed593c..c0ac606 100755
+index 667d228..9905223 100755
 --- a/target/linux/ar71xx/base-files/etc/board.d/02_network
 +++ b/target/linux/ar71xx/base-files/etc/board.d/02_network
 @@ -382,6 +382,7 @@ cap324)
@@ -27,7 +27,7 @@ index 1ed593c..c0ac606 100755
  dir-505-a1)
  	ucidef_set_interface_lan "eth1"
 diff --git a/target/linux/ar71xx/base-files/lib/ar71xx.sh b/target/linux/ar71xx/base-files/lib/ar71xx.sh
-index 5b81f73..86fa5ac 100755
+index 4eed64b..2216d77 100755
 --- a/target/linux/ar71xx/base-files/lib/ar71xx.sh
 +++ b/target/linux/ar71xx/base-files/lib/ar71xx.sh
 @@ -386,6 +386,9 @@ ar71xx_board_detect() {
@@ -41,7 +41,7 @@ index 5b81f73..86fa5ac 100755
  		name="ap113"
  		;;
 diff --git a/target/linux/ar71xx/base-files/lib/upgrade/platform.sh b/target/linux/ar71xx/base-files/lib/upgrade/platform.sh
-index 313e2e6..2ac4abb 100755
+index 119537e..ae49502 100755
 --- a/target/linux/ar71xx/base-files/lib/upgrade/platform.sh
 +++ b/target/linux/ar71xx/base-files/lib/upgrade/platform.sh
 @@ -181,6 +181,7 @@ platform_check_image() {
@@ -53,7 +53,7 @@ index 313e2e6..2ac4abb 100755
  	ap121 | \
  	ap121-mini | \
 diff --git a/target/linux/ar71xx/config-4.4 b/target/linux/ar71xx/config-4.4
-index 79d703b..dc32d45 100644
+index 6605558..9e017f1 100644
 --- a/target/linux/ar71xx/config-4.4
 +++ b/target/linux/ar71xx/config-4.4
 @@ -52,6 +52,7 @@ CONFIG_ATH79_MACH_AP83=y
@@ -65,7 +65,7 @@ index 79d703b..dc32d45 100644
  CONFIG_ATH79_MACH_BHU_BXU2000N2_A=y
  CONFIG_ATH79_MACH_BSB=y
 diff --git a/target/linux/ar71xx/files/arch/mips/ath79/Kconfig.openwrt b/target/linux/ar71xx/files/arch/mips/ath79/Kconfig.openwrt
-index 52b9b55..f8a5a7a 100644
+index b0eada1..86ccf22 100644
 --- a/target/linux/ar71xx/files/arch/mips/ath79/Kconfig.openwrt
 +++ b/target/linux/ar71xx/files/arch/mips/ath79/Kconfig.openwrt
 @@ -103,6 +103,19 @@ config ATH79_MACH_ARDUINO_YUN
@@ -89,7 +89,7 @@ index 52b9b55..f8a5a7a 100644
  	bool "Atheros AP113 board support"
  	select SOC_AR724X
 diff --git a/target/linux/ar71xx/files/arch/mips/ath79/Makefile b/target/linux/ar71xx/files/arch/mips/ath79/Makefile
-index f8b0b2b..413fa32 100644
+index 390b17d..f9fdfc8 100644
 --- a/target/linux/ar71xx/files/arch/mips/ath79/Makefile
 +++ b/target/linux/ar71xx/files/arch/mips/ath79/Makefile
 @@ -47,6 +47,7 @@ obj-$(CONFIG_ATH79_MACH_ANTMINER_S1)+= mach-antminer-s1.o
@@ -253,7 +253,7 @@ index e69de29..8d74fed 100644
 +
 +MIPS_MACHINE(ATH79_MACH_ARDUINO_YUN_SHIELD, "Yun_Shield", "Yun Shield", ds_setup);
 diff --git a/target/linux/ar71xx/files/arch/mips/ath79/machtypes.h b/target/linux/ar71xx/files/arch/mips/ath79/machtypes.h
-index f40b4a4..55c9e22 100644
+index 7dd60ac..18a401a 100644
 --- a/target/linux/ar71xx/files/arch/mips/ath79/machtypes.h
 +++ b/target/linux/ar71xx/files/arch/mips/ath79/machtypes.h
 @@ -27,6 +27,7 @@ enum ath79_mach_type {
@@ -288,10 +288,10 @@ index f5519f7..f513fb8 100644
  	DEVICE_TITLE := Arduino Yun based on Atheros AR9331
  	DEVICE_PACKAGES := kmod-usb-core kmod-usb2
 diff --git a/target/linux/ar71xx/image/legacy.mk b/target/linux/ar71xx/image/legacy.mk
-index 00c62e2..12900c5 100644
+index b9a7f13..80a149a 100644
 --- a/target/linux/ar71xx/image/legacy.mk
 +++ b/target/linux/ar71xx/image/legacy.mk
-@@ -978,6 +978,7 @@ $(eval $(call SingleProfile,AthLzma,64k,WPJ558_16M,wpj558-16M,WPJ558,ttyS0,11520
+@@ -977,6 +977,7 @@ $(eval $(call SingleProfile,AthLzma,64k,WPJ558_16M,wpj558-16M,WPJ558,ttyS0,11520
  $(eval $(call SingleProfile,AthLzma,64k,WRTNODE2Q,wrtnode2q,WRTNODE2Q,ttyS0,115200,$$(wrtnode2q_mtdlayout),KRuImage))
  $(eval $(call SingleProfile,AthLzma,64k,YUN_8M,yun-8M,Yun,ttyATH0,250000,$$(yun_mtdlayout_8M),RKuImage))
  $(eval $(call SingleProfile,AthLzma,64k,YUN_16M,yun-16M,Yun,ttyATH0,250000,$$(yun_mtdlayout_16M),RKuImage))
@@ -299,7 +299,7 @@ index 00c62e2..12900c5 100644
  
  $(eval $(call SingleProfile,Belkin,64k,F9K1115V2,f9k1115v2,F9K1115V2,ttyS0,115200,$$(f9k1115v2_mtdlayout),BR-6679BAC))
  
-@@ -1101,6 +1102,7 @@ $(eval $(call MultiProfile,WPJ344,WPJ344_16M))
+@@ -1100,6 +1101,7 @@ $(eval $(call MultiProfile,WPJ344,WPJ344_16M))
  $(eval $(call MultiProfile,WPJ531,WPJ531_16M))
  $(eval $(call MultiProfile,WPJ558,WPJ558_16M))
  $(eval $(call MultiProfile,Yun,YUN_16M YUN_8M))
@@ -308,15 +308,15 @@ index 00c62e2..12900c5 100644
  $(eval $(call MultiProfile,Minimal,$(SINGLE_PROFILES)))
  $(eval $(call MultiProfile,Madwifi,EAP7660D WP543))
 diff --git a/target/linux/ar71xx/patches-4.4/820-MIPS-ath79-add_gpio_function2_setup.patch b/target/linux/ar71xx/patches-4.4/820-MIPS-ath79-add_gpio_function2_setup.patch
-index f7f6b72..ebf84d5 100644
+index 7db6ad3..2dc52d2 100644
 --- a/target/linux/ar71xx/patches-4.4/820-MIPS-ath79-add_gpio_function2_setup.patch
 +++ b/target/linux/ar71xx/patches-4.4/820-MIPS-ath79-add_gpio_function2_setup.patch
 @@ -56,10 +56,11 @@ functions on the Arduino Yun.
   
   #define AR934X_GPIO_REG_OUT_FUNC0	0x2c
   #define AR934X_GPIO_REG_OUT_FUNC1	0x30
--@@ -971,6 +972,8 @@
-+@@ -971,6 +972,9 @@
+-@@ -974,6 +975,8 @@
++@@ -975,6 +975,9 @@
   #define AR724X_GPIO_FUNC_UART_EN		BIT(1)
   #define AR724X_GPIO_FUNC_JTAG_DISABLE		BIT(0)
   
