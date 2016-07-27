@@ -680,12 +680,12 @@ index 3e52ee4..0a4fa6c 100644
  	ATH79_MACH_AP121,		/* Atheros AP121 reference board */
  	ATH79_MACH_AP121_MINI,		/* Atheros AP121-MINI reference board */
 diff --git a/target/linux/ar71xx/image/legacy-devices.mk b/target/linux/ar71xx/image/legacy-devices.mk
-index 477b303..0d0b534 100644
+index 1d295f1..bd609e8 100644
 --- a/target/linux/ar71xx/image/legacy-devices.mk
 +++ b/target/linux/ar71xx/image/legacy-devices.mk
-@@ -50,6 +50,12 @@ define LegacyDevice/ALL0315N
+@@ -259,6 +259,12 @@ define LegacyDevice/WRTNODE2Q
  endef
- LEGACY_DEVICES += ALL0315N
+ LEGACY_DEVICES += WRTNODE2Q
  
 +define LegacyDevice/YUNSHIELD
 +  DEVICE_TITLE := Arduino/Genuino Yun Shield
@@ -693,11 +693,11 @@ index 477b303..0d0b534 100644
 +endef
 +LEGACY_DEVICES += YUNSHIELD
 +
- define LegacyDevice/Yun
-   DEVICE_TITLE := Arduino Yun based on Atheros AR9331
+ define LegacyDevice/YUN_8M
+   DEVICE_TITLE := Arduino Yun based on Atheros AR9331 (8MB flash)
    DEVICE_PACKAGES := kmod-usb-core kmod-usb2
 diff --git a/target/linux/ar71xx/image/legacy.mk b/target/linux/ar71xx/image/legacy.mk
-index c087a9b..1751ec0 100644
+index c2daba9..31ea714 100644
 --- a/target/linux/ar71xx/image/legacy.mk
 +++ b/target/linux/ar71xx/image/legacy.mk
 @@ -964,6 +964,7 @@ $(eval $(call SingleProfile,AthLzma,64k,WPJ558_16M,wpj558-16M,WPJ558,ttyS0,11520
