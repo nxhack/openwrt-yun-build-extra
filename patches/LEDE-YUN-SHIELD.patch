@@ -12,7 +12,7 @@ index 594b48e..c0d867c 100644
  
  KERNEL_PATCHVER:=4.4
 diff --git a/target/linux/ar71xx/base-files/etc/board.d/01_leds b/target/linux/ar71xx/base-files/etc/board.d/01_leds
-index 1254c71..ecbe6bc 100755
+index d731130..f30422c 100755
 --- a/target/linux/ar71xx/base-files/etc/board.d/01_leds
 +++ b/target/linux/ar71xx/base-files/etc/board.d/01_leds
 @@ -55,6 +55,11 @@ arduino-yun)
@@ -28,7 +28,7 @@ index 1254c71..ecbe6bc 100755
  	ucidef_set_led_usbdev "usb" "USB" "ap113:green:usb" "1-1"
  	;;
 diff --git a/target/linux/ar71xx/base-files/etc/board.d/02_network b/target/linux/ar71xx/base-files/etc/board.d/02_network
-index 7c4958a..0a69bbc 100755
+index 11e78a6..24071c9 100755
 --- a/target/linux/ar71xx/base-files/etc/board.d/02_network
 +++ b/target/linux/ar71xx/base-files/etc/board.d/02_network
 @@ -382,6 +382,7 @@ cap324)
@@ -40,10 +40,10 @@ index 7c4958a..0a69bbc 100755
  dir-505-a1)
  	ucidef_set_interface_lan "eth1"
 diff --git a/target/linux/ar71xx/base-files/lib/ar71xx.sh b/target/linux/ar71xx/base-files/lib/ar71xx.sh
-index d1c92c9..063eeb8 100755
+index 5d38555..6577b46 100755
 --- a/target/linux/ar71xx/base-files/lib/ar71xx.sh
 +++ b/target/linux/ar71xx/base-files/lib/ar71xx.sh
-@@ -386,6 +386,9 @@ ar71xx_board_detect() {
+@@ -395,6 +395,9 @@ ar71xx_board_detect() {
  	*"Arduino Yun")
  		name="arduino-yun"
  		;;
@@ -54,7 +54,7 @@ index d1c92c9..063eeb8 100755
  		name="ap113"
  		;;
 diff --git a/target/linux/ar71xx/base-files/lib/upgrade/platform.sh b/target/linux/ar71xx/base-files/lib/upgrade/platform.sh
-index c5cb4ab..e87be5f 100755
+index c02e5e7..f6f5b7d 100755
 --- a/target/linux/ar71xx/base-files/lib/upgrade/platform.sh
 +++ b/target/linux/ar71xx/base-files/lib/upgrade/platform.sh
 @@ -181,6 +181,7 @@ platform_check_image() {
@@ -66,10 +66,10 @@ index c5cb4ab..e87be5f 100755
  	ap121 | \
  	ap121-mini | \
 diff --git a/target/linux/ar71xx/config-4.4 b/target/linux/ar71xx/config-4.4
-index 1cae660..f3404b7 100644
+index 5878b7a..789bc5e 100644
 --- a/target/linux/ar71xx/config-4.4
 +++ b/target/linux/ar71xx/config-4.4
-@@ -23,108 +23,108 @@ CONFIG_ARCH_WANT_IPC_PARSE_VERSION=y
+@@ -23,109 +23,109 @@ CONFIG_ARCH_WANT_IPC_PARSE_VERSION=y
  CONFIG_AT803X_PHY=y
  CONFIG_ATH79=y
  CONFIG_ATH79_DEV_AP9X_PCI=y
@@ -161,6 +161,7 @@ index 1cae660..f3404b7 100644
 -CONFIG_ATH79_MACH_GL_AR300M=y
 -CONFIG_ATH79_MACH_GL_DOMINO=y
 -CONFIG_ATH79_MACH_GL_INET=y
+-CONFIG_ATH79_MACH_GL_MIFI=y
 -CONFIG_ATH79_MACH_GS_MINIBOX_V1=y
 -CONFIG_ATH79_MACH_GS_OOLITE=y
 -CONFIG_ATH79_MACH_HIWIFI_HC6361=y
@@ -235,6 +236,7 @@ index 1cae660..f3404b7 100644
 +# CONFIG_ATH79_MACH_GL_AR300M is not set
 +# CONFIG_ATH79_MACH_GL_DOMINO is not set
 +# CONFIG_ATH79_MACH_GL_INET is not set
++# CONFIG_ATH79_MACH_GL_MIFI is not set
 +# CONFIG_ATH79_MACH_GS_MINIBOX_V1 is not set
 +# CONFIG_ATH79_MACH_GS_OOLITE is not set
 +# CONFIG_ATH79_MACH_HIWIFI_HC6361 is not set
@@ -271,7 +273,7 @@ index 1cae660..f3404b7 100644
  # CONFIG_ATH79_MACH_RB2011 is not set
  # CONFIG_ATH79_MACH_RB4XX is not set
  # CONFIG_ATH79_MACH_RB750 is not set
-@@ -132,76 +132,76 @@ CONFIG_ATH79_MACH_R6100=y
+@@ -133,76 +133,76 @@ CONFIG_ATH79_MACH_R6100=y
  # CONFIG_ATH79_MACH_RB922 is not set
  # CONFIG_ATH79_MACH_RB95X is not set
  # CONFIG_ATH79_MACH_RBSXTLITE is not set
@@ -418,7 +420,7 @@ index 1cae660..f3404b7 100644
  CONFIG_ATH79_PCI_ATH9K_FIXUP=y
  # CONFIG_ATH79_ROUTERBOOT is not set
  CONFIG_ATH79_WDT=y
-@@ -279,12 +279,6 @@ CONFIG_HAVE_FUNCTION_TRACER=y
+@@ -280,12 +280,6 @@ CONFIG_HAVE_FUNCTION_TRACER=y
  CONFIG_HAVE_GENERIC_DMA_COHERENT=y
  CONFIG_HAVE_IDE=y
  CONFIG_HAVE_IRQ_TIME_ACCOUNTING=y
@@ -431,16 +433,17 @@ index 1cae660..f3404b7 100644
  CONFIG_HAVE_KVM=y
  CONFIG_HAVE_LATENCYTOP_SUPPORT=y
  CONFIG_HAVE_MEMBLOCK=y
-@@ -312,8 +306,6 @@ CONFIG_IRQ_FORCED_THREADING=y
+@@ -313,8 +307,7 @@ CONFIG_IRQ_FORCED_THREADING=y
  CONFIG_IRQ_MIPS_CPU=y
  CONFIG_IRQ_WORK=y
  CONFIG_LEDS_GPIO=y
 -CONFIG_LEDS_NU801=y
 -# CONFIG_LEDS_WNDR3700_USB is not set
++# CONFIG_LEDS_TRIGGER_MORSE is not set
  CONFIG_LIBFDT=y
  CONFIG_MARVELL_PHY=y
  CONFIG_MDIO_BOARDINFO=y
-@@ -324,6 +316,7 @@ CONFIG_MIPS_CLOCK_VSYSCALL=y
+@@ -325,6 +318,7 @@ CONFIG_MIPS_CLOCK_VSYSCALL=y
  CONFIG_MIPS_CMDLINE_FROM_BOOTLOADER=y
  # CONFIG_MIPS_CMDLINE_FROM_DTB is not set
  # CONFIG_MIPS_ELF_APPENDED_DTB is not set
@@ -448,7 +451,7 @@ index 1cae660..f3404b7 100644
  # CONFIG_MIPS_HUGE_TLB_SUPPORT is not set
  CONFIG_MIPS_L1_CACHE_SHIFT=5
  CONFIG_MIPS_MACHINE=y
-@@ -351,7 +344,6 @@ CONFIG_MTD_SPLIT_LZMA_FW=y
+@@ -352,13 +346,13 @@ CONFIG_MTD_SPLIT_LZMA_FW=y
  CONFIG_MTD_SPLIT_SEAMA_FW=y
  CONFIG_MTD_SPLIT_UIMAGE_FW=y
  CONFIG_MTD_TPLINK_PARTS=y
@@ -456,7 +459,14 @@ index 1cae660..f3404b7 100644
  CONFIG_NEED_DMA_MAP_STATE=y
  CONFIG_NEED_PER_CPU_KM=y
  CONFIG_NET_DSA=y
-@@ -396,16 +388,15 @@ CONFIG_SERIAL_8250_RUNTIME_UARTS=1
+ CONFIG_NET_DSA_MV88E6060=y
+ CONFIG_NET_DSA_MV88E6063=y
+ CONFIG_NET_DSA_TAG_TRAILER=y
++# CONFIG_NET_SCH_ESFQ is not set
+ CONFIG_NET_SWITCHDEV=y
+ CONFIG_NO_GENERIC_PCI_IOPORT_MAP=y
+ # CONFIG_NO_IOPORT_MAP is not set
+@@ -397,16 +391,15 @@ CONFIG_SERIAL_8250_RUNTIME_UARTS=1
  CONFIG_SERIAL_AR933X=y
  CONFIG_SERIAL_AR933X_CONSOLE=y
  CONFIG_SERIAL_AR933X_NR_UARTS=2
@@ -480,7 +490,7 @@ index 1cae660..f3404b7 100644
  CONFIG_SPI_BITBANG=y
  CONFIG_SPI_MASTER=y
 diff --git a/target/linux/ar71xx/files/arch/mips/ath79/Kconfig.openwrt b/target/linux/ar71xx/files/arch/mips/ath79/Kconfig.openwrt
-index a5c673c..4969fad 100644
+index a0ceecb..6923008 100644
 --- a/target/linux/ar71xx/files/arch/mips/ath79/Kconfig.openwrt
 +++ b/target/linux/ar71xx/files/arch/mips/ath79/Kconfig.openwrt
 @@ -103,6 +103,19 @@ config ATH79_MACH_ARDUINO_YUN
@@ -504,7 +514,7 @@ index a5c673c..4969fad 100644
  	bool "Atheros AP113 board support"
  	select SOC_AR724X
 diff --git a/target/linux/ar71xx/files/arch/mips/ath79/Makefile b/target/linux/ar71xx/files/arch/mips/ath79/Makefile
-index a49384a..62e84bc 100644
+index ff4fe9f2..7eb815d 100644
 --- a/target/linux/ar71xx/files/arch/mips/ath79/Makefile
 +++ b/target/linux/ar71xx/files/arch/mips/ath79/Makefile
 @@ -47,6 +47,7 @@ obj-$(CONFIG_ATH79_MACH_ANTMINER_S1)+= mach-antminer-s1.o
@@ -668,7 +678,7 @@ index e69de29..8d74fed 100644
 +
 +MIPS_MACHINE(ATH79_MACH_ARDUINO_YUN_SHIELD, "Yun_Shield", "Yun Shield", ds_setup);
 diff --git a/target/linux/ar71xx/files/arch/mips/ath79/machtypes.h b/target/linux/ar71xx/files/arch/mips/ath79/machtypes.h
-index 3e52ee4..0a4fa6c 100644
+index 3051a25..6fd331e 100644
 --- a/target/linux/ar71xx/files/arch/mips/ath79/machtypes.h
 +++ b/target/linux/ar71xx/files/arch/mips/ath79/machtypes.h
 @@ -27,6 +27,7 @@ enum ath79_mach_type {
