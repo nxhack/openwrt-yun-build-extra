@@ -20,7 +20,7 @@ fi
 #INIT KERNEL CONFIG
 if [ ! -e '.config' ]; then
   if [ -n "`fgrep 'LEDE Configuration' Config.in`" ]; then
-    cp lede-yun-minimum-4.4.config .config
+    cp lede-yun-minimum.config .config
   else
     cp openwrt-yun-minimum.config .config
   fi
@@ -114,9 +114,9 @@ fi
 # PATCH KERNEL CONFIG & COPY CONFIG FILE
 if [ -n "`fgrep 'LEDE Configuration' Config.in`" ]; then
   if [ -z "`git status|fgrep ar71xx/Makefile`" ]; then
-      patch -p1 < ./patches/LEDE-MIPS24Kc+PCI+FPU_EMU-4.4.patch
+      patch -p1 < ./patches/LEDE-MIPS24Kc+PCI+FPU_EMU.patch
   fi
-  cp lede-yun-minimum-4.4.config .config
+  cp lede-yun-minimum.config .config
 else
   if [ -z "`git status|fgrep ar71xx/Makefile`" ]; then
       patch -p1 < ./patches/OpenWrt-MIPS24Kc+PCI+FPU_EMU.patch
