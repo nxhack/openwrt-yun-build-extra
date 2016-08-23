@@ -1,16 +1,3 @@
-diff --git a/target/linux/ar71xx/Makefile b/target/linux/ar71xx/Makefile
-index 594b48e..c0d867c 100644
---- a/target/linux/ar71xx/Makefile
-+++ b/target/linux/ar71xx/Makefile
-@@ -10,7 +10,7 @@ ARCH:=mips
- BOARD:=ar71xx
- BOARDNAME:=Atheros AR7xxx/AR9xxx
- FEATURES:=mips16
--CPU_TYPE=34kc
-+CPU_TYPE=24kc
- SUBTARGETS:=generic nand mikrotik
- 
- KERNEL_PATCHVER:=4.4
 diff --git a/target/linux/ar71xx/base-files/etc/board.d/01_leds b/target/linux/ar71xx/base-files/etc/board.d/01_leds
 index d731130..f30422c 100755
 --- a/target/linux/ar71xx/base-files/etc/board.d/01_leds
