@@ -1,0 +1,73 @@
+diff --git a/target/linux/ar71xx/image/generic.mk b/target/linux/ar71xx/image/generic.mk
+index 0307b26..d451e81 100644
+--- a/target/linux/ar71xx/image/generic.mk
++++ b/target/linux/ar71xx/image/generic.mk
+@@ -552,3 +552,23 @@ $(Device/seama)
+ endef
+ 
+ TARGET_DEVICES += mynet-n600 mynet-n750 qihoo-c301
++
++define Device/yun-8m
++  DEVICE_TITLE := Arduino Yun based on Atheros AR9331 (8MB flash)
++  DEVICE_PACKAGES := kmod-usb-core kmod-usb2
++  BOARDNAME := Yun
++  KERNEL_SIZE = 1280k
++  IMAGE_SIZE = 8000k
++  MTDPARTS := spi0.0:256k(u-boot)ro,64k(u-boot-env)ro,6464k(rootfs),1280k(kernel),64k(nvram),64k(art)ro,7744k@0x50000(firmware)
++  IMAGE/sysupgrade.bin = append-kernel | pad-to $$$$(KERNEL_SIZE) | append-rootfs | pad-rootfs | check-size $$$$(IMAGE_SIZE)
++  CONSOLE := ttyATH0,250000
++endef
++
++define Device/yun-16m
++$(Device/yun-8m)
++  DEVICE_TITLE := Arduino Yun based on Atheros AR9331 (16MB flash)
++  IMAGE_SIZE = 16000k
++  MTDPARTS := spi0.0:256k(u-boot)ro,64k(u-boot-env)ro,14656k(rootfs),1280k(kernel),64k(nvram),64k(art)ro,15936k@0x50000(firmware)
++endef
++
++TARGET_DEVICES += yun-8m yun-16m
+diff --git a/target/linux/ar71xx/image/legacy-devices.mk b/target/linux/ar71xx/image/legacy-devices.mk
+index d6935e7..400a586 100644
+--- a/target/linux/ar71xx/image/legacy-devices.mk
++++ b/target/linux/ar71xx/image/legacy-devices.mk
+@@ -251,18 +251,6 @@ define LegacyDevice/WRTNODE2Q
+ endef
+ LEGACY_DEVICES += WRTNODE2Q
+ 
+-define LegacyDevice/YUN_8M
+-  DEVICE_TITLE := Arduino Yun based on Atheros AR9331 (8MB flash)
+-  DEVICE_PACKAGES := kmod-usb-core kmod-usb2
+-endef
+-LEGACY_DEVICES += YUN_8M
+-
+-define LegacyDevice/YUN_16M
+-  DEVICE_TITLE := Arduino Yun based on Atheros AR9331 (16MB flash)
+-  DEVICE_PACKAGES := kmod-usb-core kmod-usb2
+-endef
+-LEGACY_DEVICES += YUN_16M
+-
+ define LegacyDevice/F9K1115V2
+   DEVICE_TITLE := Belkin AC1750DB (F9K1115V2)
+   DEVICE_PACKAGES := kmod-usb-core kmod-usb2 kmod-usb3 kmod-ledtrig-usbdev \
+diff --git a/target/linux/ar71xx/image/legacy.mk b/target/linux/ar71xx/image/legacy.mk
+index 92f3469..a159a05 100644
+--- a/target/linux/ar71xx/image/legacy.mk
++++ b/target/linux/ar71xx/image/legacy.mk
+@@ -296,8 +296,6 @@ wndr4300_mtdlayout=mtdparts=ar934x-nfc:256k(u-boot)ro,256k(u-boot-env)ro,256k(ca
+ zcn1523h_mtdlayout=mtdparts=spi0.0:256k(u-boot)ro,64k(u-boot-env)ro,6208k(rootfs),1472k(kernel),64k(configure)ro,64k(mfg)ro,64k(art)ro,7680k@0x50000(firmware)
+ mynet_rext_mtdlayout=mtdparts=spi0.0:256k(u-boot)ro,7808k(firmware),64k(nvram)ro,64k(ART)ro
+ zyx_nbg6716_mtdlayout=mtdparts=spi0.0:256k(u-boot)ro,64k(env)ro,64k(RFdata)ro,-(nbu);ar934x-nfc:2048k(zyxel_rfsd),2048k(romd),1024k(header),2048k(kernel),-(ubi)
+-yun_mtdlayout_8M=mtdparts=spi0.0:256k(u-boot)ro,64k(u-boot-env)ro,6464k(rootfs),1280k(kernel),64k(nvram),64k(art)ro,7744k@0x50000(firmware)
+-yun_mtdlayout_16M=mtdparts=spi0.0:256k(u-boot)ro,64k(u-boot-env)ro,14656k(rootfs),1280k(kernel),64k(nvram),64k(art)ro,15936k@0x50000(firmware)
+ wrtnode2q_mtdlayout=mtdparts=spi0.0:192k(u-boot)ro,64k(u-boot-env),64k(art)ro,1472k(kernel),14592k(rootfs),16064k@0x50000(firmware),16384k@0x0(fullflash)
+ 
+ define Image/BuildKernel
+@@ -962,8 +960,6 @@ $(eval $(call SingleProfile,AthLzma,64k,DR344,dr344,DR344,ttyS0,115200,$$(dr344_
+ $(eval $(call SingleProfile,AthLzma,64k,WPJ531_16M,wpj531-16M,WPJ531,ttyS0,115200,$$(wpj531_mtdlayout_16M),KRuImage,65536))
+ $(eval $(call SingleProfile,AthLzma,64k,WPJ558_16M,wpj558-16M,WPJ558,ttyS0,115200,$$(wpj558_mtdlayout_16M),KRuImage,65536))
+ $(eval $(call SingleProfile,AthLzma,64k,WRTNODE2Q,wrtnode2q,WRTNODE2Q,ttyS0,115200,$$(wrtnode2q_mtdlayout),KRuImage))
+-$(eval $(call SingleProfile,AthLzma,64k,YUN_8M,yun-8M,Yun,ttyATH0,250000,$$(yun_mtdlayout_8M),RKuImage))
+-$(eval $(call SingleProfile,AthLzma,64k,YUN_16M,yun-16M,Yun,ttyATH0,250000,$$(yun_mtdlayout_16M),RKuImage))
+ $(eval $(call SingleProfile,AthLzma,64k,ZBTWE1526,zbt-we1526,ZBT-WE1526,ttyS0,115200,$$(ap147_mtdlayout),RKuImage))
+ 
+ $(eval $(call SingleProfile,Belkin,64k,F9K1115V2,f9k1115v2,F9K1115V2,ttyS0,115200,$$(f9k1115v2_mtdlayout),BR-6679BAC))
