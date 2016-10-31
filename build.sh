@@ -104,7 +104,7 @@ rm -rf feeds
 
 # PATCH PACKAGES
 sed -i -e s/^START=98/START=48/ ./feeds/packages/utils/rng-tools/files/rngd.init
-sed -i -e s/^RNGD_AMOUNT=4000/RNGD_AMOUNT=4096/ ./feeds/packages/utils/rng-tools/files/rngd.init
+#sed -i -e s/^RNGD_AMOUNT=4000/RNGD_AMOUNT=4096/ ./feeds/packages/utils/rng-tools/files/rngd.init
 
 # BACKUP FEEDS CONFIG
 if [ -e '.config' ]; then
