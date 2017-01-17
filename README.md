@@ -2,7 +2,7 @@
 
 ##Description
 
-OpenWrt/LEDE for Arduino Yún : trunk (Bleeding Edge / Reboot)
+OpenWrt/LEDE for Arduino Yún : lede-17.01
 
 Extra files and scripts for building OpenWrt-Yun.
 
@@ -22,8 +22,8 @@ See:
 ```bash
 mkdir Build_Path_Some_Where
 cd Build_Path_Some_Where
-git clone https://git.lede-project.org/source.git
-git clone --depth=1 --branch master --single-branch https://github.com/nxhack/openwrt-yun-build-extra.git
+git clone https://git.lede-project.org/source.git;lede-17.01
+git clone --depth=1 --branch master --single-branch https://github.com/nxhack/openwrt-yun-build-extra.git;lede-17.01
 cd source
 ln -s ../openwrt-yun-build-extra/* .
 ./build.sh
