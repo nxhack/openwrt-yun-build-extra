@@ -23,7 +23,7 @@ See:
 mkdir Build_Path_Some_Where
 cd Build_Path_Some_Where
 git clone -b lede-17.01 https://git.lede-project.org/source.git
-git clone --depth=1 --branch master --single-branch https://github.com/nxhack/openwrt-yun-build-extra.git;lede-17.01
+git clone -b lede-17.01 --depth=1 --branch master --single-branch https://github.com/nxhack/openwrt-yun-build-extra.git
 cd source
 ln -s ../openwrt-yun-build-extra/* .
 ./build.sh
