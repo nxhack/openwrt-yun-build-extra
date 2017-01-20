@@ -77,6 +77,10 @@ rm -rf feeds
 #rm -rf ./package/feeds/arduino/node-sqlite3
 #rm -rf ./package/feeds/arduino/node-ws
 
+#rm -rf ./package/feeds/alljoyn/ajtcl-alljoynjs
+#rm -rf ./package/feeds/alljoyn/ajtcl-services
+#rm -rf ./package/feeds/alljoyn/ajtcl
+
 #LINK CUSTOM PACKAGES
 #ln -s ../../../feeds/arduino/node ./package/feeds/arduino/
 #ln -s ../../../feeds/arduino/node-arduino-firmata ./package/feeds/arduino/
@@ -101,6 +105,10 @@ rm -rf feeds
 #ln -s ../../../feeds/node/node-socket.io-legacy ./package/feeds/node/
 #ln -s ../../../feeds/node/node-sqlite3 ./package/feeds/node/
 #ln -s ../../../feeds/node/node-ws ./package/feeds/node/
+
+#ln -s ../../../feeds/arduino/ajtcl-alljoynjs ./package/feeds/arduino/
+#ln -s ../../../feeds/arduino/ajtcl-services ./package/feeds/arduino/
+#ln -s ../../../feeds/arduino/ajtcl ./package/feeds/arduino/
 
 # PATCH PACKAGES
 sed -i -e s/^START=98/START=48/ ./feeds/packages/utils/rng-tools/files/rngd.init
