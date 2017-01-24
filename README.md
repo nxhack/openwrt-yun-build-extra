@@ -13,10 +13,12 @@ See:
 - [LEDE Project license](https://git.lede-project.org/?p=source.git;a=blob_plain;f=LICENSE;hb=HEAD)
 - [OpenWrt Yún license](https://github.com/arduino/openwrt-yun/blob/master/LICENSE)
 - [OpenWrt Yún license](https://github.com/RedSnake64/openwrt-yun/blob/15.05/LICENSE)
+- [Linino license](https://github.com/linino/linino_distro/blob/master/LICENSE)
 
 ## Reference
 - [Arduino LLC OpenWrt Yún](https://github.com/arduino/openwrt-yun)
 - [RedSnake64 OpenWrt for Arduino Yún](https://github.com/RedSnake64/openwrt-yun/tree/15.05)
+- [Linino distribution](https://github.com/linino/linino_distro)
 
 ## Build
 ```bash
