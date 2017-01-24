@@ -1,10 +1,10 @@
-#OpenWrt/LEDE for Arduino Yún
+#OpenWrt/LEDE for Arduino Yún (+LininoOS)
 
 ##Description
 
 OpenWrt/LEDE for Arduino Yún : lede-17.01
 
-Extra files and scripts for building OpenWrt-Yun.
+Extra files and scripts for building OpenWrt-Yun (+LininoOS).
 
 ## License
 
