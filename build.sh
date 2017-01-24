@@ -19,13 +19,8 @@ fi
 
 #INIT KERNEL CONFIG
 if [ ! -e '.config' ]; then
-  if [ -n "`fgrep 'LEDE Configuration' Config.in`" ]; then
-    cp lede-17.01-yun-minimum.config .config
-  else
-    cp openwrt-yun-minimum.config .config
-  fi
-else
-    cp .config ./backups/config.${BUILD_DATE}-$$
+  cp lede-17.01-yun-lininoos.config .config
+  cp .config ./backups/config.${BUILD_DATE}-$$
 fi
 
 #BACKUP DL FOLDER
@@ -61,21 +56,21 @@ rm -rf feeds
 #./scripts/feeds uninstall aria2 freecwmp libfreecwmp libmicroxml crtmpserver dansguardian
 
 #DELETE PACKAGES
-#rm -rf ./package/feeds/packages/node
-#rm -rf ./package/feeds/packages/node-arduino-firmata
-#rm -rf ./package/feeds/packages/node-cylon
-#rm -rf ./package/feeds/packages/node-hid
-#rm -rf ./package/feeds/packages/node-serialport
+rm -rf ./package/feeds/packages/node
+rm -rf ./package/feeds/packages/node-arduino-firmata
+rm -rf ./package/feeds/packages/node-cylon
+rm -rf ./package/feeds/packages/node-hid
+rm -rf ./package/feeds/packages/node-serialport
 
-#rm -rf ./package/feeds/arduino/node-bleno
-#rm -rf ./package/feeds/arduino/node-bluetooth-hci-socket
-#rm -rf ./package/feeds/arduino/node-noble
-#rm -rf ./package/feeds/arduino/node-socket.io
-#rm -rf ./package/feeds/arduino/node-socket.io-client
-#rm -rf ./package/feeds/arduino/node-socket.io-client-legacy
-#rm -rf ./package/feeds/arduino/node-socket.io-legacy
-#rm -rf ./package/feeds/arduino/node-sqlite3
-#rm -rf ./package/feeds/arduino/node-ws
+rm -rf ./package/feeds/arduino/node-bleno
+rm -rf ./package/feeds/arduino/node-bluetooth-hci-socket
+rm -rf ./package/feeds/arduino/node-noble
+rm -rf ./package/feeds/arduino/node-socket.io
+rm -rf ./package/feeds/arduino/node-socket.io-client
+rm -rf ./package/feeds/arduino/node-socket.io-client-legacy
+rm -rf ./package/feeds/arduino/node-socket.io-legacy
+rm -rf ./package/feeds/arduino/node-sqlite3
+rm -rf ./package/feeds/arduino/node-ws
 
 #LINK CUSTOM PACKAGES
 #ln -s ../../../feeds/arduino/node ./package/feeds/arduino/
@@ -116,13 +111,8 @@ if [ -n "`fgrep 'LEDE Configuration' Config.in`" ]; then
   if [ -z "`git status|fgrep ar71xx/config-4.4`" ]; then
       patch -p1 < ./patches/LEDE-17.01-MIPS24Kc+PCI+FPU_EMU.patch
   fi
-  cp lede-17.01-yun-minimum.config .config
-else
-  if [ -z "`git status|fgrep ar71xx/Makefile`" ]; then
-      patch -p1 < ./patches/OpenWrt-MIPS24Kc+PCI+FPU_EMU.patch
-  fi
-  cp openwrt-yun-minimum.config .config
-fi
+  cp lede-17.01-yun-lininoos.config .config
+if
 
 make oldconfig
 make
