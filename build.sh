@@ -62,16 +62,6 @@ rm -rf ./package/feeds/packages/node-cylon
 rm -rf ./package/feeds/packages/node-hid
 rm -rf ./package/feeds/packages/node-serialport
 
-rm -rf ./package/feeds/arduino/node-bleno
-rm -rf ./package/feeds/arduino/node-bluetooth-hci-socket
-rm -rf ./package/feeds/arduino/node-noble
-rm -rf ./package/feeds/arduino/node-socket.io
-rm -rf ./package/feeds/arduino/node-socket.io-client
-rm -rf ./package/feeds/arduino/node-socket.io-client-legacy
-rm -rf ./package/feeds/arduino/node-socket.io-legacy
-rm -rf ./package/feeds/arduino/node-sqlite3
-rm -rf ./package/feeds/arduino/node-ws
-
 #LINK CUSTOM PACKAGES
 #ln -s ../../../feeds/arduino/node ./package/feeds/arduino/
 #ln -s ../../../feeds/arduino/node-arduino-firmata ./package/feeds/arduino/
