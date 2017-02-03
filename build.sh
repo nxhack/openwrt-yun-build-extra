@@ -60,55 +60,15 @@ rm -rf feeds
 #UNINSTALL BROKEN PACKAGES
 #./scripts/feeds uninstall aria2 freecwmp libfreecwmp libmicroxml crtmpserver dansguardian
 
-#DELETE PACKAGES
-#rm -rf ./package/feeds/packages/node
-#rm -rf ./package/feeds/packages/node-arduino-firmata
-#rm -rf ./package/feeds/packages/node-cylon
-#rm -rf ./package/feeds/packages/node-hid
-#rm -rf ./package/feeds/packages/node-serialport
+#DELETE OPENWRT NODE PACKAGES
+rm  ./package/feeds/packages/node
+rm  ./package/feeds/packages/node-arduino-firmata
+rm  ./package/feeds/packages/node-cylon
+rm  ./package/feeds/packages/node-hid
+rm  ./package/feeds/packages/node-serialport
 
-#rm -rf ./package/feeds/arduino/node-bleno
-#rm -rf ./package/feeds/arduino/node-bluetooth-hci-socket
-#rm -rf ./package/feeds/arduino/node-noble
-#rm -rf ./package/feeds/arduino/node-socket.io
-#rm -rf ./package/feeds/arduino/node-socket.io-client
-#rm -rf ./package/feeds/arduino/node-socket.io-client-legacy
-#rm -rf ./package/feeds/arduino/node-socket.io-legacy
-#rm -rf ./package/feeds/arduino/node-sqlite3
-#rm -rf ./package/feeds/arduino/node-ws
-
-#rm -rf ./package/feeds/alljoyn/ajtcl-alljoynjs
-#rm -rf ./package/feeds/alljoyn/ajtcl-services
-#rm -rf ./package/feeds/alljoyn/ajtcl
-
-#LINK CUSTOM PACKAGES
-#ln -s ../../../feeds/arduino/node ./package/feeds/arduino/
-#ln -s ../../../feeds/arduino/node-arduino-firmata ./package/feeds/arduino/
-#ln -s ../../../feeds/arduino/node-cylon ./package/feeds/arduino/
-#ln -s ../../../feeds/arduino/node-hid ./package/feeds/arduino/
-#ln -s ../../../feeds/arduino/node-serialport ./package/feeds/arduino/
-
-#ln -s ../../../feeds/node/node ./package/feeds/node/
-#ln -s ../../../feeds/node/node-arduino-firmata ./package/feeds/node/
-#ln -s ../../../feeds/node/node-cylon ./package/feeds/node/
-#ln -s ../../../feeds/node/node-cylon-firmata ./package/feeds/node/
-#ln -s ../../../feeds/node/node-cylon-gpio ./package/feeds/node/
-#ln -s ../../../feeds/node/node-cylon-i2c ./package/feeds/node/
-#ln -s ../../../feeds/node/node-hid ./package/feeds/node/
-#ln -s ../../../feeds/node/node-serialport ./package/feeds/node/
-#ln -s ../../../feeds/node/node-bleno ./package/feeds/node/
-#ln -s ../../../feeds/node/node-bluetooth-hci-socket ./package/feeds/node/
-#ln -s ../../../feeds/node/node-noble ./package/feeds/node/
-#ln -s ../../../feeds/node/node-socket.io ./package/feeds/node/
-#ln -s ../../../feeds/node/node-socket.io-client ./package/feeds/node/
-#ln -s ../../../feeds/node/node-socket.io-client-legacy ./package/feeds/node/
-#ln -s ../../../feeds/node/node-socket.io-legacy ./package/feeds/node/
-#ln -s ../../../feeds/node/node-sqlite3 ./package/feeds/node/
-#ln -s ../../../feeds/node/node-ws ./package/feeds/node/
-
-#ln -s ../../../feeds/arduino/ajtcl-alljoynjs ./package/feeds/arduino/
-#ln -s ../../../feeds/arduino/ajtcl-services ./package/feeds/arduino/
-#ln -s ../../../feeds/arduino/ajtcl ./package/feeds/arduino/
+#INSTALL CUSTOM NODE PACKAGES
+./scripts/feeds install -a -p node
 
 # PATCH PACKAGES
 sed -i -e s/^START=98/START=48/ ./feeds/packages/utils/rng-tools/files/rngd.init
