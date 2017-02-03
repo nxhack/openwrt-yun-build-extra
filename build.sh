@@ -19,13 +19,8 @@ fi
 
 #INIT KERNEL CONFIG
 if [ ! -e '.config' ]; then
-  if [ -n "`fgrep 'LEDE Configuration' Config.in`" ]; then
-    cp lede-yun-minimum.config .config
-  else
-    cp openwrt-yun-minimum.config .config
-  fi
-else
-    cp .config ./backups/config.${BUILD_DATE}-$$
+  cp lede-yun-lininoos.config .config
+  cp .config ./backups/config.${BUILD_DATE}-$$
 fi
 
 #BACKUP DL FOLDER
@@ -84,12 +79,7 @@ if [ -n "`fgrep 'LEDE Configuration' Config.in`" ]; then
   if [ -z "`git status|fgrep ar71xx/config-4.4`" ]; then
       patch -p1 < ./patches/LEDE-MIPS24Kc+PCI+FPU_EMU.patch
   fi
-  cp lede-yun-minimum.config .config
-else
-  if [ -z "`git status|fgrep ar71xx/Makefile`" ]; then
-      patch -p1 < ./patches/OpenWrt-MIPS24Kc+PCI+FPU_EMU.patch
-  fi
-  cp openwrt-yun-minimum.config .config
+  cp lede-yun-lininoos.config .config
 fi
 
 make oldconfig
