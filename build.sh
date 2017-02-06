@@ -63,7 +63,7 @@ rm  ./package/feeds/packages/node-serialport
 ./scripts/feeds install -a -p node
 
 # PATCH PACKAGES
-sed -i -e s/^START=98/START=48/ ./feeds/packages/utils/rng-tools/files/rngd.init
+#sed -i -e s/^START=98/START=48/ ./feeds/packages/utils/rng-tools/files/rngd.init
 
 # BACKUP FEEDS CONFIG
 if [ -e '.config' ]; then
