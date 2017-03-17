@@ -1,6 +1,6 @@
-#OpenWrt/LEDE for Arduino Yún (+LininoOS)
+# OpenWrt/LEDE for Arduino Yún (+LininoOS)
 
-##Description
+## Description
 
 OpenWrt/LEDE for Arduino Yún : lede-17.01
 
