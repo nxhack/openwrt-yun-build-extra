@@ -13,7 +13,7 @@ sudo apt-get install -y git subversion build-essential asciidoc \
 	fastjar flex gawk libgtk2.0-dev intltool zlib1g-dev \
 	genisoimage libncurses5-dev libssl-dev ruby sdcc unzip \
 	bison libboost-dev libxml-parser-perl libusb-dev bin86 \
-	bcc sharutils openjdk-7-jdk mercurial cvs bzr \
+	bcc sharutils default-jdk mercurial cvs bzr \
 	curl g++-multilib squashfs-tools ccache
 
 echo "ALL DONE! YEAH!!"
