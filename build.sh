@@ -64,6 +64,7 @@ rm  ./package/feeds/packages/node-serialport
 
 # PATCH PACKAGES
 #sed -i -e s/^START=98/START=48/ ./feeds/packages/utils/rng-tools/files/rngd.init
+cp ./patches/0001-Added-linuxspi-programmer-type-using-spidev.patch ./feeds/packages/utils/avrdude/patches/
 
 # BACKUP FEEDS CONFIG
 if [ -e '.config' ]; then
