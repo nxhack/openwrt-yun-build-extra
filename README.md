@@ -6,6 +6,40 @@ OpenWrt/LEDE for Arduino Yún : trunk (Bleeding Edge / Reboot)
 
 Extra files and scripts for building OpenWrt-Yun (+LininoOS).
 
+```
+BusyBox v1.25.1 () built-in shell (ash)
+
+     _________
+    /        /\      _    ___ ___  ___
+   /  LE    /  \    | |  | __|   \| __|
+  /    DE  /    \   | |__| _|| |) | _|
+ /________/  LE  \  |____|___|___/|___|                      lede-project.org
+ \        \   DE /
+  \    LE  \    /  -----------------------------------------------------------
+   \  DE    \  /    Reboot (17.01-SNAPSHOT, r3401-e02b12c)
+    \________\/    -----------------------------------------------------------
+
+root@Arduino:~# cat /proc/cpuinfo
+system type             : Atheros AR9330 rev 1
+machine                 : Arduino Yun
+processor               : 0
+cpu model               : MIPS 24Kc V7.4
+BogoMIPS                : 265.42
+wait instruction        : yes
+microsecond timers      : yes
+tlb_entries             : 16
+extra interrupt vector  : yes
+hardware watchpoint     : yes, count: 4, address/irw mask: [0x0ffc, 0x0ffc, 0x0ffb, 0x0ffb]
+isa                     : mips1 mips2 mips32r1 mips32r2
+ASEs implemented        : mips16
+shadow register sets    : 1
+kscratch registers      : 0
+package                 : 0
+core                    : 0
+VCED exceptions         : not available
+VCEI exceptions         : not available
+```
+
 ## License
 
 See:
