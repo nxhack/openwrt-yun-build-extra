@@ -68,5 +68,15 @@ Please modify ./files/etc/opkg/distfeeds.conf
 
 **Enjoy!**
 
+## Breaking changes
+- [ar71xx: move Arduino Yun to generic building code ](https://github.com/lede-project/source/commit/bb46b635df48d5c2368f98646c16e3333cbc11fb)
+
+To use the new partitioning, you need to update your U-Boot env in advance:
+```
+setenv mtdparts "spi0.0:256k(u-boot)ro,64k(u-boot-env),15936k(firmware),64k(nvram),64k(art)ro"
+setenv bootcmd "run addboard; run addtty; run addparts; run addrootfs; bootm 0x9f050000 || bootm 0x9fea0000"
+saveenv
+```
+
 ## Behind the scenes
 - [OpenWrt for Arduino Yún cheat sheet](http://www.egrep.jp/wiki/index.php/OpenWrt_for_Arduino_Yun_cheat_sheet)
