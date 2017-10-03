@@ -1,5 +1,5 @@
 diff --git a/target/linux/ar71xx/config-4.4 b/target/linux/ar71xx/config-4.4
-index 09097d0..67130e3 100644
+index 0e77560..2896581 100644
 --- a/target/linux/ar71xx/config-4.4
 +++ b/target/linux/ar71xx/config-4.4
 @@ -23,136 +23,135 @@ CONFIG_ARCH_WANT_IPC_PARSE_VERSION=y
