@@ -19,7 +19,7 @@ fi
 
 #INIT KERNEL CONFIG
 if [ ! -e '.config' ]; then
-  cp lede-yun-lininoos.config .config
+  cp openwrt-yun-lininoos.config .config
   cp .config ./backups/config.${BUILD_DATE}-$$
 fi
 
@@ -52,15 +52,9 @@ rm -rf feeds
 ./scripts/feeds update -a
 ./scripts/feeds install -a
 
-#UNINSTALL BROKEN PACKAGES
-#./scripts/feeds uninstall aria2 freecwmp libfreecwmp libmicroxml crtmpserver dansguardian
-
 #DELETE OPENWRT NODE PACKAGES
 rm  ./package/feeds/packages/node
-rm  ./package/feeds/packages/node-arduino-firmata
-rm  ./package/feeds/packages/node-cylon
-rm  ./package/feeds/packages/node-hid
-rm  ./package/feeds/packages/node-serialport
+rm  ./package/feeds/packages/node-*
 
 #INSTALL CUSTOM NODE PACKAGES
 ./scripts/feeds install -a -p node
@@ -74,11 +68,11 @@ if [ -e '.config' ]; then
 fi
 
 # PATCH KERNEL CONFIG & COPY CONFIG FILE
-if [ -n "`fgrep 'LEDE Configuration' Config.in`" ]; then
-  if [ -z "`git status|fgrep ar71xx/config-4.4`" ]; then
-      patch -p1 < ./patches/LEDE-MIPS24Kc+PCI+FPU_EMU.patch
+if [ -n "`fgrep 'OpenWrt Configuration' Config.in`" ]; then
+  if [ -z "`git status|fgrep ar71xx/config-`" ]; then
+      patch -p1 < ./patches/OpenWrt-MIPS24Kc+PCI+FPU_EMU.patch
   fi
-  cp lede-yun-lininoos.config .config
+  cp openwrt-yun-lininoos.config .config
 fi
 
 make oldconfig

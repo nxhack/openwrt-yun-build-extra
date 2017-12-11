@@ -1,18 +1,5 @@
-diff --git a/target/linux/ar71xx/Makefile b/target/linux/ar71xx/Makefile
-index 24d7d5c..62209a5 100644
---- a/target/linux/ar71xx/Makefile
-+++ b/target/linux/ar71xx/Makefile
-@@ -10,7 +10,7 @@ ARCH:=mips
- BOARD:=ar71xx
- BOARDNAME:=Atheros AR7xxx/AR9xxx
- FEATURES:=mips16
--CPU_TYPE=34kc
-+CPU_TYPE=24kc
- SUBTARGETS:=generic nand mikrotik
- 
- KERNEL_PATCHVER:=4.1
 diff --git a/target/linux/ar71xx/base-files/etc/board.d/01_leds b/target/linux/ar71xx/base-files/etc/board.d/01_leds
-index 39b21ca..4b239da 100755
+index d731130..f30422c 100755
 --- a/target/linux/ar71xx/base-files/etc/board.d/01_leds
 +++ b/target/linux/ar71xx/base-files/etc/board.d/01_leds
 @@ -55,6 +55,11 @@ arduino-yun)
@@ -28,10 +15,10 @@ index 39b21ca..4b239da 100755
  	ucidef_set_led_usbdev "usb" "USB" "ap113:green:usb" "1-1"
  	;;
 diff --git a/target/linux/ar71xx/base-files/etc/board.d/02_network b/target/linux/ar71xx/base-files/etc/board.d/02_network
-index 67adf33..3760900 100755
+index 11e78a6..24071c9 100755
 --- a/target/linux/ar71xx/base-files/etc/board.d/02_network
 +++ b/target/linux/ar71xx/base-files/etc/board.d/02_network
-@@ -380,6 +380,7 @@ cap324)
+@@ -382,6 +382,7 @@ cap324)
  	;;
  
  arduino-yun |\
@@ -40,10 +27,10 @@ index 67adf33..3760900 100755
  dir-505-a1)
  	ucidef_set_interface_lan "eth1"
 diff --git a/target/linux/ar71xx/base-files/lib/ar71xx.sh b/target/linux/ar71xx/base-files/lib/ar71xx.sh
-index d71b8ba..776de1a 100755
+index 5d38555..6577b46 100755
 --- a/target/linux/ar71xx/base-files/lib/ar71xx.sh
 +++ b/target/linux/ar71xx/base-files/lib/ar71xx.sh
-@@ -386,6 +386,9 @@ ar71xx_board_detect() {
+@@ -395,6 +395,9 @@ ar71xx_board_detect() {
  	*"Arduino Yun")
  		name="arduino-yun"
  		;;
@@ -54,7 +41,7 @@ index d71b8ba..776de1a 100755
  		name="ap113"
  		;;
 diff --git a/target/linux/ar71xx/base-files/lib/upgrade/platform.sh b/target/linux/ar71xx/base-files/lib/upgrade/platform.sh
-index 9f8a14b..3511a20 100755
+index c02e5e7..f6f5b7d 100755
 --- a/target/linux/ar71xx/base-files/lib/upgrade/platform.sh
 +++ b/target/linux/ar71xx/base-files/lib/upgrade/platform.sh
 @@ -181,6 +181,7 @@ platform_check_image() {
@@ -65,11 +52,11 @@ index 9f8a14b..3511a20 100755
  	ap113 | \
  	ap121 | \
  	ap121-mini | \
-diff --git a/target/linux/ar71xx/config-4.1 b/target/linux/ar71xx/config-4.1
-index 5939891..3d018a7 100644
---- a/target/linux/ar71xx/config-4.1
-+++ b/target/linux/ar71xx/config-4.1
-@@ -20,105 +20,105 @@ CONFIG_ARCH_WANT_IPC_PARSE_VERSION=y
+diff --git a/target/linux/ar71xx/config-4.4 b/target/linux/ar71xx/config-4.4
+index 5878b7a..d805f28 100644
+--- a/target/linux/ar71xx/config-4.4
++++ b/target/linux/ar71xx/config-4.4
+@@ -23,109 +23,109 @@ CONFIG_ARCH_WANT_IPC_PARSE_VERSION=y
  CONFIG_AT803X_PHY=y
  CONFIG_ATH79=y
  CONFIG_ATH79_DEV_AP9X_PCI=y
@@ -145,6 +132,7 @@ index 5939891..3d018a7 100644
 -CONFIG_ATH79_MACH_DLAN_PRO_1200_AC=y
 -CONFIG_ATH79_MACH_DLAN_PRO_500_WP=y
 -CONFIG_ATH79_MACH_DR344=y
+-CONFIG_ATH79_MACH_DR531=y
 -CONFIG_ATH79_MACH_DRAGINO2=y
 -CONFIG_ATH79_MACH_EAP300V2=y
 -CONFIG_ATH79_MACH_EAP7660D=y
@@ -157,14 +145,17 @@ index 5939891..3d018a7 100644
 -CONFIG_ATH79_MACH_F9K1115V2=y
 -CONFIG_ATH79_MACH_GL_AR150=y
 -CONFIG_ATH79_MACH_GL_AR300=y
+-CONFIG_ATH79_MACH_GL_AR300M=y
 -CONFIG_ATH79_MACH_GL_DOMINO=y
 -CONFIG_ATH79_MACH_GL_INET=y
+-CONFIG_ATH79_MACH_GL_MIFI=y
 -CONFIG_ATH79_MACH_GS_MINIBOX_V1=y
 -CONFIG_ATH79_MACH_GS_OOLITE=y
 -CONFIG_ATH79_MACH_HIWIFI_HC6361=y
 -CONFIG_ATH79_MACH_HORNET_UB=y
 -CONFIG_ATH79_MACH_JA76PF=y
 -CONFIG_ATH79_MACH_JWAP003=y
+-CONFIG_ATH79_MACH_JWAP230=y
 -CONFIG_ATH79_MACH_MC_MAC1200R=y
 -CONFIG_ATH79_MACH_MR12=y
 -CONFIG_ATH79_MACH_MR16=y
@@ -216,6 +207,7 @@ index 5939891..3d018a7 100644
 +# CONFIG_ATH79_MACH_DLAN_PRO_1200_AC is not set
 +# CONFIG_ATH79_MACH_DLAN_PRO_500_WP is not set
 +# CONFIG_ATH79_MACH_DR344 is not set
++# CONFIG_ATH79_MACH_DR531 is not set
 +# CONFIG_ATH79_MACH_DRAGINO2 is not set
 +# CONFIG_ATH79_MACH_EAP300V2 is not set
 +# CONFIG_ATH79_MACH_EAP7660D is not set
@@ -228,14 +220,17 @@ index 5939891..3d018a7 100644
 +# CONFIG_ATH79_MACH_F9K1115V2 is not set
 +# CONFIG_ATH79_MACH_GL_AR150 is not set
 +# CONFIG_ATH79_MACH_GL_AR300 is not set
++# CONFIG_ATH79_MACH_GL_AR300M is not set
 +# CONFIG_ATH79_MACH_GL_DOMINO is not set
 +# CONFIG_ATH79_MACH_GL_INET is not set
++# CONFIG_ATH79_MACH_GL_MIFI is not set
 +# CONFIG_ATH79_MACH_GS_MINIBOX_V1 is not set
 +# CONFIG_ATH79_MACH_GS_OOLITE is not set
 +# CONFIG_ATH79_MACH_HIWIFI_HC6361 is not set
 +# CONFIG_ATH79_MACH_HORNET_UB is not set
 +# CONFIG_ATH79_MACH_JA76PF is not set
 +# CONFIG_ATH79_MACH_JWAP003 is not set
++# CONFIG_ATH79_MACH_JWAP230 is not set
 +# CONFIG_ATH79_MACH_MC_MAC1200R is not set
 +# CONFIG_ATH79_MACH_MR12 is not set
 +# CONFIG_ATH79_MACH_MR16 is not set
@@ -265,12 +260,13 @@ index 5939891..3d018a7 100644
  # CONFIG_ATH79_MACH_RB2011 is not set
  # CONFIG_ATH79_MACH_RB4XX is not set
  # CONFIG_ATH79_MACH_RB750 is not set
-@@ -126,74 +126,74 @@ CONFIG_ATH79_MACH_R6100=y
+@@ -133,76 +133,76 @@ CONFIG_ATH79_MACH_R6100=y
  # CONFIG_ATH79_MACH_RB922 is not set
  # CONFIG_ATH79_MACH_RB95X is not set
  # CONFIG_ATH79_MACH_RBSXTLITE is not set
 -CONFIG_ATH79_MACH_RW2458N=y
 -CONFIG_ATH79_MACH_SMART_300=y
+-CONFIG_ATH79_MACH_SOM9331=y
 -CONFIG_ATH79_MACH_TELLSTICK_ZNET_LITE=y
 -CONFIG_ATH79_MACH_TEW_632BRP=y
 -CONFIG_ATH79_MACH_TEW_673GRU=y
@@ -330,6 +326,7 @@ index 5939891..3d018a7 100644
 -CONFIG_ATH79_MACH_WPJ558=y
 -CONFIG_ATH79_MACH_WRT160NL=y
 -CONFIG_ATH79_MACH_WRT400N=y
+-CONFIG_ATH79_MACH_WRTNODE2Q=y
 -CONFIG_ATH79_MACH_WZR_450HP2=y
 -CONFIG_ATH79_MACH_WZR_HP_AG300H=y
 -CONFIG_ATH79_MACH_WZR_HP_G300NH=y
@@ -339,6 +336,7 @@ index 5939891..3d018a7 100644
 -CONFIG_ATH79_NVRAM=y
 +# CONFIG_ATH79_MACH_RW2458N is not set
 +# CONFIG_ATH79_MACH_SMART_300 is not set
++# CONFIG_ATH79_MACH_SOM9331 is not set
 +# CONFIG_ATH79_MACH_TELLSTICK_ZNET_LITE is not set
 +# CONFIG_ATH79_MACH_TEW_632BRP is not set
 +# CONFIG_ATH79_MACH_TEW_673GRU is not set
@@ -398,6 +396,7 @@ index 5939891..3d018a7 100644
 +# CONFIG_ATH79_MACH_WPJ558 is not set
 +# CONFIG_ATH79_MACH_WRT160NL is not set
 +# CONFIG_ATH79_MACH_WRT400N is not set
++# CONFIG_ATH79_MACH_WRTNODE2Q is not set
 +# CONFIG_ATH79_MACH_WZR_450HP2 is not set
 +# CONFIG_ATH79_MACH_WZR_HP_AG300H is not set
 +# CONFIG_ATH79_MACH_WZR_HP_G300NH is not set
@@ -408,20 +407,37 @@ index 5939891..3d018a7 100644
  CONFIG_ATH79_PCI_ATH9K_FIXUP=y
  # CONFIG_ATH79_ROUTERBOOT is not set
  CONFIG_ATH79_WDT=y
-@@ -291,11 +291,11 @@ CONFIG_IRQ_DOMAIN=y
- CONFIG_IRQ_FORCED_THREADING=y
+@@ -280,12 +280,6 @@ CONFIG_HAVE_FUNCTION_TRACER=y
+ CONFIG_HAVE_GENERIC_DMA_COHERENT=y
+ CONFIG_HAVE_IDE=y
+ CONFIG_HAVE_IRQ_TIME_ACCOUNTING=y
+-CONFIG_HAVE_KERNEL_BZIP2=y
+-CONFIG_HAVE_KERNEL_GZIP=y
+-CONFIG_HAVE_KERNEL_LZ4=y
+-CONFIG_HAVE_KERNEL_LZMA=y
+-CONFIG_HAVE_KERNEL_LZO=y
+-CONFIG_HAVE_KERNEL_XZ=y
+ CONFIG_HAVE_KVM=y
+ CONFIG_HAVE_LATENCYTOP_SUPPORT=y
+ CONFIG_HAVE_MEMBLOCK=y
+@@ -313,8 +307,6 @@ CONFIG_IRQ_FORCED_THREADING=y
+ CONFIG_IRQ_MIPS_CPU=y
  CONFIG_IRQ_WORK=y
  CONFIG_LEDS_GPIO=y
+-CONFIG_LEDS_NU801=y
 -# CONFIG_LEDS_WNDR3700_USB is not set
+ CONFIG_LIBFDT=y
  CONFIG_MARVELL_PHY=y
  CONFIG_MDIO_BOARDINFO=y
- CONFIG_MICREL_PHY=y
- CONFIG_MIPS=y
+@@ -325,6 +317,7 @@ CONFIG_MIPS_CLOCK_VSYSCALL=y
+ CONFIG_MIPS_CMDLINE_FROM_BOOTLOADER=y
+ # CONFIG_MIPS_CMDLINE_FROM_DTB is not set
+ # CONFIG_MIPS_ELF_APPENDED_DTB is not set
 +CONFIG_MIPS_FPU_EMULATOR=y
  # CONFIG_MIPS_HUGE_TLB_SUPPORT is not set
  CONFIG_MIPS_L1_CACHE_SHIFT=5
  CONFIG_MIPS_MACHINE=y
-@@ -320,7 +320,6 @@ CONFIG_MTD_SPLIT_LZMA_FW=y
+@@ -352,7 +345,6 @@ CONFIG_MTD_SPLIT_LZMA_FW=y
  CONFIG_MTD_SPLIT_SEAMA_FW=y
  CONFIG_MTD_SPLIT_UIMAGE_FW=y
  CONFIG_MTD_TPLINK_PARTS=y
@@ -429,10 +445,10 @@ index 5939891..3d018a7 100644
  CONFIG_NEED_DMA_MAP_STATE=y
  CONFIG_NEED_PER_CPU_KM=y
  CONFIG_NET_DSA=y
-@@ -353,16 +352,15 @@ CONFIG_SERIAL_AR933X_CONSOLE=y
+@@ -397,16 +389,15 @@ CONFIG_SERIAL_8250_RUNTIME_UARTS=1
+ CONFIG_SERIAL_AR933X=y
+ CONFIG_SERIAL_AR933X_CONSOLE=y
  CONFIG_SERIAL_AR933X_NR_UARTS=2
- # CONFIG_SLAB is not set
- CONFIG_SLUB=y
 -CONFIG_SOC_AR71XX=y
 +# CONFIG_SOC_AR71XX is not set
  CONFIG_SOC_AR724X=y
@@ -452,20 +468,8 @@ index 5939891..3d018a7 100644
  CONFIG_SPI_ATH79=y
  CONFIG_SPI_BITBANG=y
  CONFIG_SPI_MASTER=y
-diff --git a/target/linux/ar71xx/config-4.4 b/target/linux/ar71xx/config-4.4
-index 57ac5d8..9b92f98 100644
---- a/target/linux/ar71xx/config-4.4
-+++ b/target/linux/ar71xx/config-4.4
-@@ -52,6 +52,7 @@ CONFIG_ATH79_MACH_AP83=y
- CONFIG_ATH79_MACH_AP96=y
- CONFIG_ATH79_MACH_ARCHER_C7=y
- CONFIG_ATH79_MACH_ARDUINO_YUN=y
-+CONFIG_ATH79_MACH_ARDUINO_YUN_SHIELD=y
- CONFIG_ATH79_MACH_AW_NR580=y
- CONFIG_ATH79_MACH_BHU_BXU2000N2_A=y
- CONFIG_ATH79_MACH_BSB=y
 diff --git a/target/linux/ar71xx/files/arch/mips/ath79/Kconfig.openwrt b/target/linux/ar71xx/files/arch/mips/ath79/Kconfig.openwrt
-index 0fb2df2..203f464 100644
+index a0ceecb..6923008 100644
 --- a/target/linux/ar71xx/files/arch/mips/ath79/Kconfig.openwrt
 +++ b/target/linux/ar71xx/files/arch/mips/ath79/Kconfig.openwrt
 @@ -103,6 +103,19 @@ config ATH79_MACH_ARDUINO_YUN
@@ -489,7 +493,7 @@ index 0fb2df2..203f464 100644
  	bool "Atheros AP113 board support"
  	select SOC_AR724X
 diff --git a/target/linux/ar71xx/files/arch/mips/ath79/Makefile b/target/linux/ar71xx/files/arch/mips/ath79/Makefile
-index 6144e29..cf0d7c6 100644
+index ff4fe9f2..7eb815d 100644
 --- a/target/linux/ar71xx/files/arch/mips/ath79/Makefile
 +++ b/target/linux/ar71xx/files/arch/mips/ath79/Makefile
 @@ -47,6 +47,7 @@ obj-$(CONFIG_ATH79_MACH_ANTMINER_S1)+= mach-antminer-s1.o
@@ -653,7 +657,7 @@ index e69de29..8d74fed 100644
 +
 +MIPS_MACHINE(ATH79_MACH_ARDUINO_YUN_SHIELD, "Yun_Shield", "Yun Shield", ds_setup);
 diff --git a/target/linux/ar71xx/files/arch/mips/ath79/machtypes.h b/target/linux/ar71xx/files/arch/mips/ath79/machtypes.h
-index 4879255..f8cceab 100644
+index 3051a25..6fd331e 100644
 --- a/target/linux/ar71xx/files/arch/mips/ath79/machtypes.h
 +++ b/target/linux/ar71xx/files/arch/mips/ath79/machtypes.h
 @@ -27,6 +27,7 @@ enum ath79_mach_type {
@@ -664,63 +668,45 @@ index 4879255..f8cceab 100644
  	ATH79_MACH_AP113,		/* Atheros AP113 reference board */
  	ATH79_MACH_AP121,		/* Atheros AP121 reference board */
  	ATH79_MACH_AP121_MINI,		/* Atheros AP121-MINI reference board */
-diff --git a/target/linux/ar71xx/generic/profiles/arduino.mk b/target/linux/ar71xx/generic/profiles/arduino.mk
-index 8ae5054..df1877c 100644
---- a/target/linux/ar71xx/generic/profiles/arduino.mk
-+++ b/target/linux/ar71xx/generic/profiles/arduino.mk
-@@ -17,3 +17,13 @@ endef
+diff --git a/target/linux/ar71xx/image/legacy-devices.mk b/target/linux/ar71xx/image/legacy-devices.mk
+index 1d295f1..bd609e8 100644
+--- a/target/linux/ar71xx/image/legacy-devices.mk
++++ b/target/linux/ar71xx/image/legacy-devices.mk
+@@ -259,6 +259,12 @@ define LegacyDevice/WRTNODE2Q
+ endef
+ LEGACY_DEVICES += WRTNODE2Q
  
- $(eval $(call Profile,Yun))
- 
-+define Profile/YUNSHIELD
-+	NAME:=Arduino/Genuino Yun Shield
-+	PACKAGES:=kmod-usb-core kmod-usb2
++define LegacyDevice/YUNSHIELD
++  DEVICE_TITLE := Arduino/Genuino Yun Shield
++  DEVICE_PACKAGES := kmod-usb-core kmod-usb2
 +endef
++LEGACY_DEVICES += YUNSHIELD
 +
-+define Profile/YUNSHIELD/Description
-+	Package set optimized for the Arduino/Genuino Yun Shield.
-+endef
-+
-+$(eval $(call Profile,YUNSHIELD))
-diff --git a/target/linux/ar71xx/image/Makefile b/target/linux/ar71xx/image/Makefile
-index bc8a4a8..67698e2 100644
---- a/target/linux/ar71xx/image/Makefile
-+++ b/target/linux/ar71xx/image/Makefile
-@@ -2435,6 +2435,7 @@ $(eval $(call SingleProfile,AthLzma,64k,WPJ531_16M,wpj531-16M,WPJ531,ttyS0,11520
- $(eval $(call SingleProfile,AthLzma,64k,WPJ558_16M,wpj558-16M,WPJ558,ttyS0,115200,$$(wpj558_mtdlayout_16M),KRuImage,65536))
+ define LegacyDevice/YUN_8M
+   DEVICE_TITLE := Arduino Yun based on Atheros AR9331 (8MB flash)
+   DEVICE_PACKAGES := kmod-usb-core kmod-usb2
+diff --git a/target/linux/ar71xx/image/legacy.mk b/target/linux/ar71xx/image/legacy.mk
+index c2daba9..31ea714 100644
+--- a/target/linux/ar71xx/image/legacy.mk
++++ b/target/linux/ar71xx/image/legacy.mk
+@@ -964,6 +964,7 @@ $(eval $(call SingleProfile,AthLzma,64k,WPJ558_16M,wpj558-16M,WPJ558,ttyS0,11520
+ $(eval $(call SingleProfile,AthLzma,64k,WRTNODE2Q,wrtnode2q,WRTNODE2Q,ttyS0,115200,$$(wrtnode2q_mtdlayout),KRuImage))
  $(eval $(call SingleProfile,AthLzma,64k,YUN_8M,yun-8M,Yun,ttyATH0,250000,$$(yun_mtdlayout_8M),RKuImage))
  $(eval $(call SingleProfile,AthLzma,64k,YUN_16M,yun-16M,Yun,ttyATH0,250000,$$(yun_mtdlayout_16M),RKuImage))
 +$(eval $(call SingleProfile,AthLzma,64k,YUNSHIELD,yun-shield,Yun_Shield,ttyATH0,250000,$$(yun_mtdlayout_16M),RKuImage))
  
  $(eval $(call SingleProfile,Belkin,64k,F9K1115V2,f9k1115v2,F9K1115V2,ttyS0,115200,$$(f9k1115v2_mtdlayout),BR-6679BAC))
  
-diff --git a/target/linux/ar71xx/patches-4.1/820-MIPS-ath79-add_gpio_function2_setup.patch b/target/linux/ar71xx/patches-4.1/820-MIPS-ath79-add_gpio_function2_setup.patch
-index 5c90057..ef58e80 100644
---- a/target/linux/ar71xx/patches-4.1/820-MIPS-ath79-add_gpio_function2_setup.patch
-+++ b/target/linux/ar71xx/patches-4.1/820-MIPS-ath79-add_gpio_function2_setup.patch
-@@ -61,10 +61,11 @@ functions on the Arduino Yun.
-  
-  #define AR934X_GPIO_REG_OUT_FUNC0	0x2c
-  #define AR934X_GPIO_REG_OUT_FUNC1	0x30
--@@ -971,6 +972,8 @@
-+@@ -971,6 +972,9 @@
-  #define AR724X_GPIO_FUNC_UART_EN		BIT(1)
-  #define AR724X_GPIO_FUNC_JTAG_DISABLE		BIT(0)
-  
-++#define AR933X_GPIO_FUNC2_WPS_DISABLE		BIT(8)
- +#define AR933X_GPIO_FUNC2_JUMPSTART_DISABLE 	BIT(9)
- +
-  #define AR913X_GPIO_FUNC_WMAC_LED_EN		BIT(22)
 diff --git a/target/linux/ar71xx/patches-4.4/820-MIPS-ath79-add_gpio_function2_setup.patch b/target/linux/ar71xx/patches-4.4/820-MIPS-ath79-add_gpio_function2_setup.patch
-index f7f6b72..ebf84d5 100644
+index 7db6ad3..2dc52d2 100644
 --- a/target/linux/ar71xx/patches-4.4/820-MIPS-ath79-add_gpio_function2_setup.patch
 +++ b/target/linux/ar71xx/patches-4.4/820-MIPS-ath79-add_gpio_function2_setup.patch
 @@ -56,10 +56,11 @@ functions on the Arduino Yun.
   
   #define AR934X_GPIO_REG_OUT_FUNC0	0x2c
   #define AR934X_GPIO_REG_OUT_FUNC1	0x30
--@@ -971,6 +972,8 @@
-+@@ -971,6 +972,9 @@
+-@@ -974,6 +975,8 @@
++@@ -975,6 +975,9 @@
   #define AR724X_GPIO_FUNC_UART_EN		BIT(1)
   #define AR724X_GPIO_FUNC_JTAG_DISABLE		BIT(0)
   
