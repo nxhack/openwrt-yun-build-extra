@@ -54,17 +54,13 @@ rm -rf feeds
 
 #DELETE OPENWRT NODE PACKAGES
 rm  ./package/feeds/packages/node
-rm  ./package/feeds/packages/node-arduino-firmata
-rm  ./package/feeds/packages/node-cylon
-rm  ./package/feeds/packages/node-hid
-rm  ./package/feeds/packages/node-serialport
+rm  ./package/feeds/packages/node-*
 
 #INSTALL CUSTOM NODE PACKAGES
 ./scripts/feeds install -a -p node
 
 # PATCH PACKAGES
-#sed -i -e s/^START=98/START=48/ ./feeds/packages/utils/rng-tools/files/rngd.init
-cp ./patches/0001-Added-linuxspi-programmer-type-using-spidev.patch ./feeds/packages/utils/avrdude/patches/
+#cp ./patches/0001-Added-linuxspi-programmer-type-using-spidev.patch ./feeds/packages/utils/avrdude/patches/
 
 # BACKUP FEEDS CONFIG
 if [ -e '.config' ]; then
