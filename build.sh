@@ -60,7 +60,7 @@ rm  ./package/feeds/packages/node-*
 ./scripts/feeds install -a -p node
 
 # PATCH PACKAGES
-cp ./patches/0001-Added-linuxspi-programmer-type-using-spidev.patch ./feeds/packages/utils/avrdude/patches/
+#cp ./patches/0001-Added-linuxspi-programmer-type-using-spidev.patch ./feeds/packages/utils/avrdude/patches/
 
 # BACKUP FEEDS CONFIG
 if [ -e '.config' ]; then
