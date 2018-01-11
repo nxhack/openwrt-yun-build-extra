@@ -58,9 +58,9 @@ See:
 ```bash
 mkdir Build_Path_Some_Where
 cd Build_Path_Some_Where
-git clone --branch lede-17.01 https://git.lede-project.org/source.git
+git clone --branch lede-17.01 https://github.com/openwrt/openwrt.git
 git clone --depth=1 --branch lede-17.01 --single-branch https://github.com/nxhack/openwrt-yun-build-extra.git
-cd source
+cd openwrt
 ln -s ../openwrt-yun-build-extra/* .
 ./build.sh
 ```
