@@ -21,7 +21,6 @@ CONFIG_LIBCURL_OPENSSL=y
 CONFIG_LIBCURL_PROXY=y
 CONFIG_LUCI_LANG_en=y
 CONFIG_MAKE_TOOLCHAIN=y
-CONFIG_MINIUPNPD_IGDv2=y
 CONFIG_NODEJS_8=y
 CONFIG_NODEJS_ICU_SMALL=y
 CONFIG_OPENSSL_ENGINE_CRYPTO=y
@@ -60,6 +59,7 @@ CONFIG_PACKAGE_blkid=y
 CONFIG_PACKAGE_block-mount=y
 CONFIG_PACKAGE_bluez-libs=m
 CONFIG_PACKAGE_bossa=y
+CONFIG_PACKAGE_ca-bundle=y
 CONFIG_PACKAGE_ca-certificates=y
 # CONFIG_PACKAGE_chat is not set
 CONFIG_PACKAGE_ciao=y
@@ -76,9 +76,32 @@ CONFIG_PACKAGE_dbus-utils=y
 # CONFIG_PACKAGE_dnsmasq is not set
 CONFIG_PACKAGE_dnsmasq-dhcpv6=y
 CONFIG_PACKAGE_duktape=m
+CONFIG_PACKAGE_gdb=y
 CONFIG_PACKAGE_git=m
 CONFIG_PACKAGE_gnupg=y
 CONFIG_PACKAGE_hidapi=m
+# CONFIG_PACKAGE_ip6tables-extra is not set
+# CONFIG_PACKAGE_ip6tables-mod-nat is not set
+# CONFIG_PACKAGE_iptables-mod-checksum is not set
+# CONFIG_PACKAGE_iptables-mod-cluster is not set
+# CONFIG_PACKAGE_iptables-mod-clusterip is not set
+# CONFIG_PACKAGE_iptables-mod-conntrack-extra is not set
+# CONFIG_PACKAGE_iptables-mod-extra is not set
+# CONFIG_PACKAGE_iptables-mod-filter is not set
+# CONFIG_PACKAGE_iptables-mod-hashlimit is not set
+# CONFIG_PACKAGE_iptables-mod-ipopt is not set
+# CONFIG_PACKAGE_iptables-mod-iprange is not set
+# CONFIG_PACKAGE_iptables-mod-ipsec is not set
+# CONFIG_PACKAGE_iptables-mod-led is not set
+# CONFIG_PACKAGE_iptables-mod-nat-extra is not set
+# CONFIG_PACKAGE_iptables-mod-nflog is not set
+# CONFIG_PACKAGE_iptables-mod-nfqueue is not set
+# CONFIG_PACKAGE_iptables-mod-rpfilter is not set
+# CONFIG_PACKAGE_iptables-mod-tee is not set
+# CONFIG_PACKAGE_iptables-mod-tproxy is not set
+# CONFIG_PACKAGE_iptables-mod-trace is not set
+# CONFIG_PACKAGE_iptables-mod-u32 is not set
+# CONFIG_PACKAGE_iptables-mod-ulog is not set
 CONFIG_PACKAGE_kmod-crypto-aead=y
 CONFIG_PACKAGE_kmod-crypto-cmac=y
 CONFIG_PACKAGE_kmod-crypto-crc32c=y
@@ -138,8 +161,12 @@ CONFIG_PACKAGE_libgcrypt=y
 CONFIG_PACKAGE_libgdbm=y
 CONFIG_PACKAGE_libgmp=y
 CONFIG_PACKAGE_libgpg-error=y
+# CONFIG_PACKAGE_libiptc is not set
 CONFIG_PACKAGE_libiwinfo-lua=y
 CONFIG_PACKAGE_liblua=y
+CONFIG_PACKAGE_liblucihttp=y
+CONFIG_PACKAGE_liblucihttp-lua=y
+CONFIG_PACKAGE_liblzma=m
 CONFIG_PACKAGE_libncurses=y
 CONFIG_PACKAGE_libnettle=y
 CONFIG_PACKAGE_libopenssl=y
@@ -188,7 +215,6 @@ CONFIG_PACKAGE_node=m
 CONFIG_PACKAGE_node-actions-on-google=m
 CONFIG_PACKAGE_node-alexa-app=m
 CONFIG_PACKAGE_node-alexa-sdk=m
-CONFIG_PACKAGE_node-alljoyn=m
 CONFIG_PACKAGE_node-arduino-firmata=m
 CONFIG_PACKAGE_node-authenticate-pam=m
 CONFIG_PACKAGE_node-autobahn=m
@@ -206,6 +232,7 @@ CONFIG_PACKAGE_node-bleno=m
 CONFIG_PACKAGE_node-bluetooth-hci-socket=m
 CONFIG_PACKAGE_node-bower=m
 CONFIG_PACKAGE_node-browserify=m
+CONFIG_PACKAGE_node-bufferutil=m
 CONFIG_PACKAGE_node-coap=m
 CONFIG_PACKAGE_node-cpx=m
 CONFIG_PACKAGE_node-cylon=m
@@ -243,6 +270,7 @@ CONFIG_PACKAGE_node-modbus=m
 CONFIG_PACKAGE_node-mqtt=m
 CONFIG_PACKAGE_node-muzzley-client=m
 CONFIG_PACKAGE_node-nconf=m
+CONFIG_PACKAGE_node-net-ping=m
 CONFIG_PACKAGE_node-nino-io=m
 CONFIG_PACKAGE_node-nitrogen=m
 CONFIG_PACKAGE_node-nitrogen-cli=m
@@ -278,6 +306,7 @@ CONFIG_PACKAGE_node-statvfs=m
 CONFIG_PACKAGE_node-twilio=m
 CONFIG_PACKAGE_node-uglify-js=m
 CONFIG_PACKAGE_node-usb=m
+CONFIG_PACKAGE_node-utf-8-validate=m
 CONFIG_PACKAGE_node-ws=m
 CONFIG_PACKAGE_node-xmpp=m
 CONFIG_PACKAGE_node-xmpp-client=m
@@ -306,6 +335,7 @@ CONFIG_PACKAGE_rpcd-mod-rrdns=y
 CONFIG_PACKAGE_shellinabox=m
 # CONFIG_PACKAGE_snapshot-tool is not set
 CONFIG_PACKAGE_spacebrew=y
+CONFIG_PACKAGE_strace=y
 CONFIG_PACKAGE_swap-utils=y
 CONFIG_PACKAGE_temboo=y
 CONFIG_PACKAGE_terminfo=y
@@ -337,6 +367,7 @@ CONFIG_VERSIONOPT=y
 CONFIG_VERSION_BUG_URL=""
 CONFIG_VERSION_CODE=""
 CONFIG_VERSION_DIST="OpenWrt"
+CONFIG_VERSION_HOME_URL=""
 CONFIG_VERSION_HWREV="1.0"
 CONFIG_VERSION_MANUFACTURER="Arduino"
 CONFIG_VERSION_MANUFACTURER_URL=""
