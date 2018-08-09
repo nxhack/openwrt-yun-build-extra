@@ -4,14 +4,12 @@ CONFIG_TARGET_ar71xx_generic_DEVICE_arduino-yun=y
 CONFIG_ALL_KMODS=y
 CONFIG_ALL_NONSHARED=y
 CONFIG_DEVEL=y
-# CONFIG_B43LEGACY_FW_SQUASH is not set
 CONFIG_BUILD_PATENTED=y
 CONFIG_CCACHE=y
 CONFIG_IB=y
 CONFIG_IB_STANDALONE=y
 CONFIG_IMAGEOPT=y
 CONFIG_KERNEL_MIPS_FPU_EMULATOR=y
-# CONFIG_KMOD_BATMAN_ADV_BATMAN_V is not set
 CONFIG_LIBCURL_COOKIES=y
 CONFIG_LIBCURL_FILE=y
 CONFIG_LIBCURL_FTP=y
@@ -22,9 +20,7 @@ CONFIG_LIBCURL_PROXY=y
 CONFIG_LUCI_LANG_en=y
 CONFIG_MAKE_TOOLCHAIN=y
 CONFIG_NODEJS_8=y
-CONFIG_NODEJS_ICU_SMALL=y
-CONFIG_OPENSSL_ENGINE_CRYPTO=y
-CONFIG_OPENSSL_HARDWARE_SUPPORT=y
+CONFIG_NODEJS_ICU_NONE=y
 CONFIG_OPENSSL_WITH_COMPRESSION=y
 CONFIG_OPENSSL_WITH_DEPRECATED=y
 CONFIG_OPENSSL_WITH_EC=y
@@ -51,109 +47,64 @@ CONFIG_PACKAGE_alljoyn-samples=m
 CONFIG_PACKAGE_alljoyn-services_common=m
 CONFIG_PACKAGE_arduinoos=m
 CONFIG_PACKAGE_argp-standalone=y
+CONFIG_PACKAGE_attendedsysupgrade-common=y
+CONFIG_PACKAGE_avahi-daemon-service-ssh=y
 CONFIG_PACKAGE_avahi-dbus-daemon=y
 CONFIG_PACKAGE_avahi-dnsconfd=y
 CONFIG_PACKAGE_avahi-utils=y
 CONFIG_PACKAGE_avrdude=y
+CONFIG_PACKAGE_badblocks=y
 CONFIG_PACKAGE_blkid=y
 CONFIG_PACKAGE_block-mount=y
 CONFIG_PACKAGE_bluez-libs=m
 CONFIG_PACKAGE_bossa=y
 CONFIG_PACKAGE_ca-bundle=y
 CONFIG_PACKAGE_ca-certificates=y
-# CONFIG_PACKAGE_chat is not set
+CONFIG_PACKAGE_cgi-io=y
 CONFIG_PACKAGE_ciao=y
 CONFIG_PACKAGE_ciao-connector-phant=m
 CONFIG_PACKAGE_ciao-connector-smtp=m
 CONFIG_PACKAGE_ciao-connector-xmpp=m
-# CONFIG_PACKAGE_comgt is not set
-# CONFIG_PACKAGE_comgt-directip is not set
-# CONFIG_PACKAGE_comgt-ncm is not set
 CONFIG_PACKAGE_cpu-mcu-bridge=y
 CONFIG_PACKAGE_curl=y
 CONFIG_PACKAGE_dbus=y
 CONFIG_PACKAGE_dbus-utils=y
-# CONFIG_PACKAGE_dnsmasq is not set
-CONFIG_PACKAGE_dnsmasq-dhcpv6=y
+CONFIG_PACKAGE_dosfstools=y
 CONFIG_PACKAGE_duktape=m
+CONFIG_PACKAGE_e2fsprogs=y
+CONFIG_PACKAGE_fdisk=y
 CONFIG_PACKAGE_gdb=y
-CONFIG_PACKAGE_git=m
 CONFIG_PACKAGE_gnupg=y
 CONFIG_PACKAGE_hidapi=m
-# CONFIG_PACKAGE_ip6tables-extra is not set
-# CONFIG_PACKAGE_ip6tables-mod-nat is not set
-# CONFIG_PACKAGE_iptables-mod-checksum is not set
-# CONFIG_PACKAGE_iptables-mod-cluster is not set
-# CONFIG_PACKAGE_iptables-mod-clusterip is not set
-# CONFIG_PACKAGE_iptables-mod-conntrack-extra is not set
-# CONFIG_PACKAGE_iptables-mod-extra is not set
-# CONFIG_PACKAGE_iptables-mod-filter is not set
-# CONFIG_PACKAGE_iptables-mod-hashlimit is not set
-# CONFIG_PACKAGE_iptables-mod-ipopt is not set
-# CONFIG_PACKAGE_iptables-mod-iprange is not set
-# CONFIG_PACKAGE_iptables-mod-ipsec is not set
-# CONFIG_PACKAGE_iptables-mod-led is not set
-# CONFIG_PACKAGE_iptables-mod-nat-extra is not set
-# CONFIG_PACKAGE_iptables-mod-nflog is not set
-# CONFIG_PACKAGE_iptables-mod-nfqueue is not set
-# CONFIG_PACKAGE_iptables-mod-rpfilter is not set
-# CONFIG_PACKAGE_iptables-mod-tee is not set
-# CONFIG_PACKAGE_iptables-mod-tproxy is not set
-# CONFIG_PACKAGE_iptables-mod-trace is not set
-# CONFIG_PACKAGE_iptables-mod-u32 is not set
-# CONFIG_PACKAGE_iptables-mod-ulog is not set
-CONFIG_PACKAGE_kmod-crypto-aead=y
-CONFIG_PACKAGE_kmod-crypto-cmac=y
-CONFIG_PACKAGE_kmod-crypto-crc32c=y
-CONFIG_PACKAGE_kmod-crypto-hash=y
-CONFIG_PACKAGE_kmod-crypto-manager=y
-CONFIG_PACKAGE_kmod-crypto-null=y
-CONFIG_PACKAGE_kmod-crypto-pcompress=y
-CONFIG_PACKAGE_kmod-cryptodev=m
-CONFIG_PACKAGE_kmod-fs-afs=m
 CONFIG_PACKAGE_kmod-fs-exfat=m
-CONFIG_PACKAGE_kmod-fs-ext4=y
-CONFIG_PACKAGE_kmod-fs-hfs=y
-CONFIG_PACKAGE_kmod-fs-hfsplus=y
 CONFIG_PACKAGE_kmod-fs-msdos=y
-CONFIG_PACKAGE_kmod-fs-ntfs=y
-CONFIG_PACKAGE_kmod-fs-reiserfs=y
 CONFIG_PACKAGE_kmod-fs-vfat=y
-CONFIG_PACKAGE_kmod-fuse=y
-CONFIG_PACKAGE_kmod-i2c-core=y
-CONFIG_PACKAGE_kmod-leds-gpio=y
-CONFIG_PACKAGE_kmod-ledtrig-default-on=y
-CONFIG_PACKAGE_kmod-ledtrig-netdev=y
-CONFIG_PACKAGE_kmod-ledtrig-timer=y
-CONFIG_PACKAGE_kmod-lib-crc16=y
 CONFIG_PACKAGE_kmod-loop=y
 CONFIG_PACKAGE_kmod-nls-cp437=y
 CONFIG_PACKAGE_kmod-nls-iso8859-1=y
 CONFIG_PACKAGE_kmod-nls-utf8=y
-CONFIG_PACKAGE_kmod-rxrpc=m
 CONFIG_PACKAGE_kmod-scsi-core=y
 CONFIG_PACKAGE_kmod-scsi-generic=y
 CONFIG_PACKAGE_kmod-spi-bitbang=y
 CONFIG_PACKAGE_kmod-spi-dev=y
 CONFIG_PACKAGE_kmod-spi-gpio=y
 CONFIG_PACKAGE_kmod-spi-gpio-custom=y
-CONFIG_PACKAGE_kmod-usb-ohci=y
 CONFIG_PACKAGE_kmod-usb-storage=y
-CONFIG_PACKAGE_kmod-video-core=y
-CONFIG_PACKAGE_ldbus=m
-# CONFIG_PACKAGE_libatomic is not set
 CONFIG_PACKAGE_libavahi-client=y
 CONFIG_PACKAGE_libavahi-compat-libdnssd=y
 CONFIG_PACKAGE_libavahi-dbus-support=y
 CONFIG_PACKAGE_libblkid=y
 CONFIG_PACKAGE_libbz2=y
 CONFIG_PACKAGE_libcap=y
+CONFIG_PACKAGE_libcomerr=y
 CONFIG_PACKAGE_libcurl=y
 CONFIG_PACKAGE_libdaemon=y
-CONFIG_PACKAGE_libdb47=m
 CONFIG_PACKAGE_libdbus=y
 CONFIG_PACKAGE_libelf1=y
+CONFIG_PACKAGE_libevdev=m
 CONFIG_PACKAGE_libexpat=y
+CONFIG_PACKAGE_libext2fs=y
+CONFIG_PACKAGE_libfdisk=y
 CONFIG_PACKAGE_libffi=y
 CONFIG_PACKAGE_libftdi1=y
 CONFIG_PACKAGE_libfuse=m
@@ -161,7 +112,6 @@ CONFIG_PACKAGE_libgcrypt=y
 CONFIG_PACKAGE_libgdbm=y
 CONFIG_PACKAGE_libgmp=y
 CONFIG_PACKAGE_libgpg-error=y
-# CONFIG_PACKAGE_libiptc is not set
 CONFIG_PACKAGE_libiwinfo-lua=y
 CONFIG_PACKAGE_liblua=y
 CONFIG_PACKAGE_liblucihttp=y
@@ -175,17 +125,16 @@ CONFIG_PACKAGE_libpcre=y
 CONFIG_PACKAGE_libpopt=m
 CONFIG_PACKAGE_libreadline=y
 CONFIG_PACKAGE_librt=y
-CONFIG_PACKAGE_libsqlite3=m
+CONFIG_PACKAGE_libsmartcols=y
+CONFIG_PACKAGE_libss=y
 CONFIG_PACKAGE_libstdcpp=y
 CONFIG_PACKAGE_libubus-lua=y
 CONFIG_PACKAGE_libuci-lua=y
+CONFIG_PACKAGE_libudev-fbsd=m
 CONFIG_PACKAGE_libusb-1.0=y
 CONFIG_PACKAGE_libusb-compat=y
 CONFIG_PACKAGE_libustream-openssl=y
 CONFIG_PACKAGE_libuuid=y
-# CONFIG_PACKAGE_libwrap is not set
-CONFIG_PACKAGE_libxml2=m
-CONFIG_PACKAGE_libxslt=m
 CONFIG_PACKAGE_logrotate=m
 CONFIG_PACKAGE_lua=y
 CONFIG_PACKAGE_lua-base64=m
@@ -196,6 +145,7 @@ CONFIG_PACKAGE_lua-xavante=m
 CONFIG_PACKAGE_luafilesystem=m
 CONFIG_PACKAGE_luci=y
 CONFIG_PACKAGE_luci-app-arduino-webpanel=y
+CONFIG_PACKAGE_luci-app-attendedsysupgrade=y
 CONFIG_PACKAGE_luci-app-firewall=y
 CONFIG_PACKAGE_luci-base=y
 CONFIG_PACKAGE_luci-i18n-base-en=y
@@ -209,7 +159,7 @@ CONFIG_PACKAGE_luci-proto-ipv6=y
 CONFIG_PACKAGE_luci-proto-ppp=y
 CONFIG_PACKAGE_luci-theme-bootstrap=y
 CONFIG_PACKAGE_luci-theme-openwrt=y
-CONFIG_PACKAGE_mg=m
+CONFIG_PACKAGE_mg=y
 CONFIG_PACKAGE_nano=y
 CONFIG_PACKAGE_node=m
 CONFIG_PACKAGE_node-actions-on-google=m
@@ -230,7 +180,6 @@ CONFIG_PACKAGE_node-binaryjs=m
 CONFIG_PACKAGE_node-bleacon=m
 CONFIG_PACKAGE_node-bleno=m
 CONFIG_PACKAGE_node-bluetooth-hci-socket=m
-CONFIG_PACKAGE_node-bower=m
 CONFIG_PACKAGE_node-browserify=m
 CONFIG_PACKAGE_node-bufferutil=m
 CONFIG_PACKAGE_node-coap=m
@@ -287,7 +236,6 @@ CONFIG_PACKAGE_node-node-red-node-arduino=m
 CONFIG_PACKAGE_node-node-static=m
 CONFIG_PACKAGE_node-npm=m
 CONFIG_PACKAGE_node-npm-check-updates=m
-CONFIG_PACKAGE_node-nsp=m
 CONFIG_PACKAGE_node-onoff=m
 CONFIG_PACKAGE_node-pm2=m
 CONFIG_PACKAGE_node-reverse-wstunnel=m
@@ -304,6 +252,7 @@ CONFIG_PACKAGE_node-soracom=m
 CONFIG_PACKAGE_node-sqlite3=m
 CONFIG_PACKAGE_node-statvfs=m
 CONFIG_PACKAGE_node-twilio=m
+CONFIG_PACKAGE_node-typescript=m
 CONFIG_PACKAGE_node-uglify-js=m
 CONFIG_PACKAGE_node-usb=m
 CONFIG_PACKAGE_node-utf-8-validate=m
@@ -313,9 +262,6 @@ CONFIG_PACKAGE_node-xmpp-client=m
 CONFIG_PACKAGE_node-xmpp-component=m
 CONFIG_PACKAGE_node-xmpp-server=m
 CONFIG_PACKAGE_node-yarn=m
-# CONFIG_PACKAGE_nvram is not set
-# CONFIG_PACKAGE_odhcp6c is not set
-# CONFIG_PACKAGE_odhcpd-ipv6only is not set
 CONFIG_PACKAGE_openssl-util=y
 CONFIG_PACKAGE_python-base=y
 CONFIG_PACKAGE_python-email=m
@@ -327,42 +273,30 @@ CONFIG_PACKAGE_python-paho-mqtt=y
 CONFIG_PACKAGE_python-pyserial=y
 CONFIG_PACKAGE_python-xml=y
 CONFIG_PACKAGE_querierd=m
-# CONFIG_PACKAGE_rbcfg is not set
 CONFIG_PACKAGE_reset-serial=y
 CONFIG_PACKAGE_rng-tools=y
 CONFIG_PACKAGE_rpcd=y
+CONFIG_PACKAGE_rpcd-mod-rpcsys=y
 CONFIG_PACKAGE_rpcd-mod-rrdns=y
 CONFIG_PACKAGE_shellinabox=m
-# CONFIG_PACKAGE_snapshot-tool is not set
 CONFIG_PACKAGE_spacebrew=y
 CONFIG_PACKAGE_strace=y
 CONFIG_PACKAGE_swap-utils=y
 CONFIG_PACKAGE_temboo=y
 CONFIG_PACKAGE_terminfo=y
+CONFIG_PACKAGE_tune2fs=y
 CONFIG_PACKAGE_uSDaemon=m
 CONFIG_PACKAGE_uboot-ar71xx-linino-yun=y
 CONFIG_PACKAGE_uhttpd=y
 CONFIG_PACKAGE_uhttpd-mod-lua=y
 CONFIG_PACKAGE_uhttpd-mod-ubus=y
-# CONFIG_PACKAGE_umbim is not set
-# CONFIG_PACKAGE_uqmi is not set
-# CONFIG_PACKAGE_usbip is not set
 CONFIG_PACKAGE_usbutils=y
 CONFIG_PACKAGE_wget=y
 CONFIG_PACKAGE_wireless-tools=y
-# CONFIG_PACKAGE_wwan is not set
 CONFIG_PACKAGE_yun-conf=y
 CONFIG_PACKAGE_yun-scripts=y
 CONFIG_PACKAGE_zlib=y
-# CONFIG_POSTFIX_CDB is not set
-# CONFIG_POSTFIX_LDAP is not set
-# CONFIG_POSTFIX_PCRE is not set
-# CONFIG_POSTFIX_SASL is not set
-# CONFIG_POSTFIX_SQLITE is not set
-# CONFIG_POSTFIX_TLS is not set
 CONFIG_SDK=y
-CONFIG_SQLITE_FTS3=y
-CONFIG_SQLITE_RTREE=y
 CONFIG_VERSIONOPT=y
 CONFIG_VERSION_BUG_URL=""
 CONFIG_VERSION_CODE=""
