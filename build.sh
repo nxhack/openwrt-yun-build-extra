@@ -59,6 +59,13 @@ rm  ./package/feeds/packages/node-*
 #INSTALL CUSTOM NODE PACKAGES
 ./scripts/feeds install -a -p node
 
+#DELETE OPENWRT MRAA PACKAGES
+rm ./package/feeds/packages/libmraa
+rm ./package/feeds/packages/libupm
+
+#INSTALL CUSTOM MRAA PACKAGES
+./scripts/feeds install -a -p inteliot
+
 # PATCH PACKAGES
 #cp ./patches/0001-Added-linuxspi-programmer-type-using-spidev.patch ./feeds/packages/utils/avrdude/patches/
 
@@ -72,8 +79,10 @@ if [ -n "`fgrep 'OpenWrt Configuration' Config.in`" ]; then
   if [ -z "`git status|fgrep ar71xx/config-`" ]; then
       patch -p1 < ./patches/OpenWrt-MIPS24Kc+PCI+FPU_EMU.patch
   fi
-  cp openwrt-yun-lininoos.config .config
+  #cp openwrt-yun-lininoos.config .config
+  cp openwrt-yun-lininoos.diffconfig .config
 fi
 
-make oldconfig
+#make oldconfig
+make defconfig
 make
