@@ -59,6 +59,14 @@ rm  ./package/feeds/packages/node-*
 #INSTALL CUSTOM NODE PACKAGES
 ./scripts/feeds install -a -p node
 
+#DELETE OPENWRT MRAA PACKAGES
+rm ./package/feeds/packages/swig
+rm ./package/feeds/packages/libmraa
+rm ./package/feeds/packages/libupm
+
+#INSTALL CUSTOM MRAA PACKAGES
+./scripts/feeds install -a -p inteliot
+
 # PATCH PACKAGES
 #cp ./patches/0001-Added-linuxspi-programmer-type-using-spidev.patch ./feeds/packages/utils/avrdude/patches/
 
@@ -72,8 +80,10 @@ if [ -n "`fgrep 'LEDE Configuration' Config.in`" ]; then
   if [ -z "`git status|fgrep ar71xx/config-4.4`" ]; then
       patch -p1 < ./patches/LEDE-17.01-MIPS24Kc+PCI+FPU_EMU.patch
   fi
-  cp lede-17.01-yun-lininoos.config .config
+  #cp lede-17.01-yun-lininoos.config .config
+  cp lede-17.01-yun-lininoos.diffconfig .config
 fi
 
-make oldconfig
+#make oldconfig
+make defconfig
 make
