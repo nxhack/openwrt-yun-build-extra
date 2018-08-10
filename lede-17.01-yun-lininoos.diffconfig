@@ -50,6 +50,7 @@ CONFIG_PACKAGE_avahi-dbus-daemon=y
 CONFIG_PACKAGE_avahi-dnsconfd=y
 CONFIG_PACKAGE_avahi-utils=y
 CONFIG_PACKAGE_avrdude=y
+CONFIG_PACKAGE_badblocks=y
 CONFIG_PACKAGE_blkid=y
 CONFIG_PACKAGE_block-mount=y
 CONFIG_PACKAGE_bluez-libs=m
