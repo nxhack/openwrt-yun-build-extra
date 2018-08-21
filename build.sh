@@ -2,6 +2,13 @@
 
 BUILD_DATE=`date +%Y%m%d-%H%M%S`
 
+#
+if [ ${EUID:-${UID}} = 0 ]; then
+    echo "Do everything as normal user, don't use root user or sudo!"
+    exit 255
+fi
+
+
 #CREATE BACKUP DIRECTORY
 if [ ! -e 'backups' ]; then
     mkdir backups
