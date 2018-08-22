@@ -55,6 +55,10 @@ See:
 - [Linino distribution](https://github.com/linino/linino_distro)
 
 ## Build
+[**READ FIRST**](https://openwrt.org/docs/guide-developer/build-system/use-buildsystem)
+**Do everything as normal user, don't use root user or sudo!**
+**Do not build in a directory that has spaces(and non ASCII characters) in its full path**
+
 ```bash
 mkdir Build_Path_Some_Where
 cd Build_Path_Some_Where
