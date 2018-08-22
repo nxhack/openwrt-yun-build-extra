@@ -56,7 +56,9 @@ See:
 
 ## Build
 [**READ FIRST**](https://openwrt.org/docs/guide-developer/build-system/use-buildsystem)
+
 **Do everything as normal user, don't use root user or sudo!**
+
 **Do not build in a directory that has spaces(and non ASCII characters) in its full path**
 
 ```bash
