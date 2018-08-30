@@ -17,6 +17,10 @@ config uhttpd 'main'
 	option http_keepalive '20'
 	option tcp_keepalive '1'
 	option ubus_prefix '/ubus'
+	option ubus_socket /var/run/ubus.sock
+	option lua_prefix /luci
+	option lua_handler /usr/lib/lua/luci/sgi/uhttpd.lua
+	list lua_prefix '/cgi-bin/luci=/usr/lib/lua/luci/sgi/uhttpd.lua'
 	list alias '/arduino=/cgi-bin/luci'
 	list alias '/data=/cgi-bin/luci'
 	list alias '/mailbox=/cgi-bin/luci'
