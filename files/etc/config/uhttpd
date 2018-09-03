@@ -14,7 +14,7 @@ config uhttpd 'main'
 	option cgi_prefix '/cgi-bin'
 	option lua_prefix /luci
 	option lua_handler /usr/lib/lua/luci/sgi/uhttpd.lua
-	list lua_prefix '/cgi-bin/luci=/usr/lib/lua/luci/sgi/uhttpd.lua'
+	#list lua_prefix '/cgi-bin/luci=/usr/lib/lua/luci/sgi/uhttpd.lua'
 	#option ubus_prefix '/ubus'
 	#option ubus_socket /var/run/ubus.sock
 	option script_timeout '60'
