@@ -84,5 +84,9 @@ setenv bootcmd "run addboard; run addtty; run addparts; run addrootfs; bootm 0x9
 saveenv
 ```
 
+## Luci and Arduino WebPanel
+The latest version of luci does not work with arduino-webpanel.
+Unfortunately unable to fix, downgrade to lede-17.01 branch.
+
 ## Behind the scenes
 - [OpenWrt for Arduino Yún cheat sheet](http://www.egrep.jp/wiki/index.php/OpenWrt_for_Arduino_Yun_cheat_sheet)
