@@ -88,5 +88,7 @@ saveenv
 The latest version of luci does not work with arduino-webpanel.
 Unfortunately unable to fix, downgrade to lede-17.01 branch.
 
+After setting Yun, upgrade the luci package to the latest version.
+
 ## Behind the scenes
 - [OpenWrt for Arduino Yún cheat sheet](http://www.egrep.jp/wiki/index.php/OpenWrt_for_Arduino_Yun_cheat_sheet)
