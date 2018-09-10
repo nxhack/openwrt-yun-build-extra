@@ -90,5 +90,10 @@ Unfortunately unable to fix, downgrade to lede-17.01 branch.
 
 After setting Yun, upgrade the luci package to the latest version.
 
+## Yún First Configuration
+How to connect to a WiFi network with your Yún device using the Serial Monitor as the communication interface during the whole process.
+
+- [Yún First Configuration](https://www.arduino.cc/en/Tutorial/YunFirstConfig)
+
 ## Behind the scenes
 - [OpenWrt for Arduino Yún cheat sheet](http://www.egrep.jp/wiki/index.php/OpenWrt_for_Arduino_Yun_cheat_sheet)
