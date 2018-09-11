@@ -86,7 +86,7 @@ saveenv
 
 ## Luci and Arduino WebPanel
 The latest version of luci does not work with arduino-webpanel.
-Unfortunately unable to fix, downgrade to lede-17.01 branch.
+Unfortunately unable to fix, downgrade to lede-17.01 branch. (or use YunFirstConfig)
 
 After setting Yun, upgrade the luci package to the latest version.
 
