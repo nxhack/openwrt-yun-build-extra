@@ -96,7 +96,7 @@ How to connect to a WiFi network with your Yún device using the Serial Monitor 
 - [Yún First Configuration](https://www.arduino.cc/en/Tutorial/YunFirstConfig)
 
 ## REST API ACCESS
-REST API using Web Basic Authentication does not work with The latest version of luci.
+REST API using Web Basic Authentication does not work with the latest version of luci.
 
 ## Behind the scenes
 - [OpenWrt for Arduino Yún cheat sheet](http://www.egrep.jp/wiki/index.php/OpenWrt_for_Arduino_Yun_cheat_sheet)
