@@ -19,7 +19,7 @@ rm -f ./package/feeds/packages/libupm
 #INSTALL CUSTOM MRAA PACKAGES
 ./scripts/feeds install -a -p inteliot
 
-cp openwrt-yun-lininoos.diffconfig .config
+cp lede-17.01-yun-lininoos.diffconfig .config
 
 make defconfig
 make
