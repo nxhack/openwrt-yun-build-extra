@@ -70,7 +70,7 @@ cd openwrt
 ln -s ../openwrt-yun-build-extra/* .
 ./build.sh
 ```
-Please modify ./files/etc/opkg/distfeeds.conf
+Please modify /etc/opkg/distfeeds.conf
 
 **Enjoy!**
 
