@@ -147,6 +147,7 @@ CONFIG_PACKAGE_node=m
 CONFIG_PACKAGE_node-actions-on-google=m
 CONFIG_PACKAGE_node-alexa-app=m
 CONFIG_PACKAGE_node-arduino-firmata=m
+CONFIG_PACKAGE_node-ask-sdk=m
 CONFIG_PACKAGE_node-authenticate-pam=m
 CONFIG_PACKAGE_node-autobahn=m
 CONFIG_PACKAGE_node-aws-iot-device-sdk=m
