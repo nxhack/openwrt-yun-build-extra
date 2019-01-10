@@ -15,7 +15,7 @@ RUN apt-get install -y build-essential libncurses5-dev gawk git subversion \
                        libssl-dev gettext zlib1g-dev swig unzip time
 RUN apt-get install -y sudo wget python file
 
-RUN useradd -m openwrt
+RUN useradd -m -s /bin/bash openwrt
 RUN echo 'openwrt ALL=NOPASSWD: ALL' > /etc/sudoers.d/openwrt
 
 WORKDIR /home/openwrt
