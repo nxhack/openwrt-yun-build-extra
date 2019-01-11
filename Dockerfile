@@ -17,7 +17,7 @@ RUN apt-get install -y build-essential libncurses5-dev gawk git subversion \
                        libssl-dev gettext zlib1g-dev swig unzip time
 
 RUN useradd -m -s /bin/bash openwrt
-RUN echo 'openwrt ALL=(ALL) NOPASSWD:ALL' > /etc/sudoers.d/openwrt
+RUN echo 'openwrt ALL=NOPASSWD: ALL' > /etc/sudoers.d/openwrt
 
 WORKDIR /home/openwrt
 RUN sudo -iu openwrt git clone https://github.com/openwrt/openwrt.git
