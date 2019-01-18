@@ -26,4 +26,12 @@ RUN git clone https://github.com/openwrt/openwrt.git && \
 git clone --depth=1 --branch master --single-branch https://github.com/nxhack/openwrt-yun-build-extra.git && \
 ln -s /home/openwrt/openwrt-yun-build-extra/* /home/openwrt/openwrt/
 
+#
+# For the first time build:
+#   'cd openwrt; ./build.sh'
+#
+# From the next time build:
+#   'cd openwrt; ./rebuild.sh
+#
+
 CMD ["/bin/bash"]
