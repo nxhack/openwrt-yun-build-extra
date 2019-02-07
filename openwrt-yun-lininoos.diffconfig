@@ -231,6 +231,7 @@ CONFIG_PACKAGE_node-node-lambda=m
 CONFIG_PACKAGE_node-node-red=m
 CONFIG_PACKAGE_node-node-red-contrib-gpio=m
 CONFIG_PACKAGE_node-node-red-contrib-homekit=m
+CONFIG_PACKAGE_node-node-red-contrib-modbus=m
 CONFIG_PACKAGE_node-node-red-node-arduino=m
 CONFIG_PACKAGE_node-node-static=m
 CONFIG_PACKAGE_node-npm=m
