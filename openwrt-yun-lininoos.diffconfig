@@ -278,6 +278,7 @@ CONFIG_PACKAGE_node-xmpp-component=m
 CONFIG_PACKAGE_node-xmpp-server=m
 CONFIG_PACKAGE_node-yarn=m
 CONFIG_PACKAGE_openssl-util=y
+CONFIG_PACKAGE_python-RPi.GPIO=m
 CONFIG_PACKAGE_python-base=y
 CONFIG_PACKAGE_python-email=m
 CONFIG_PACKAGE_python-light=y
