@@ -72,6 +72,12 @@ rm -f ./package/feeds/packages/libupm
 #INSTALL CUSTOM MRAA PACKAGES
 ./scripts/feeds install -a -p inteliot
 
+#DELETE OPENWRT PAHO-MQTT PACKAGE
+rm -f ./package/feeds/packages/python-paho-mqtt
+
+#INSTALL CUSTOM PACKAGES
+./scripts/feeds install -a -p custom
+
 # PATCH PACKAGES
 #cp ./patches/0001-Added-linuxspi-programmer-type-using-spidev.patch ./feeds/packages/utils/avrdude/patches/
 
