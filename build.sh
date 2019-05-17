@@ -22,6 +22,14 @@ if [ -e 'key-build.pub' ]; then
     cp -n key-build.pub ./backups/
     cp key-build.pub ./backups/key-build.pub.${BUILD_DATE}-$$
 fi
+if [ -e 'key-build.ucert' ]; then
+    cp -n key-build.ucert ./backups/
+    cp key-build.ucert ./backups/key-build.ucert.${BUILD_DATE}-$$
+fi
+if [ -e 'key-build.ucert.revoke' ]; then
+    cp -n key-build.ucert.revoke ./backups/
+    cp key-build.ucert.revoke ./backups/key-build.ucert.revoke.${BUILD_DATE}-$$
+fi
 
 #INIT KERNEL CONFIG
 if [ ! -e '.config' ]; then
@@ -50,6 +58,12 @@ if [ -e 'backups/key-build' ]; then
 fi
 if [ -e 'backups/key-build.pub' ]; then
     cp ./backups/key-build.pub .
+fi
+if [ -e 'backups/key-build.ucert' ]; then
+    cp ./backups/key-build.ucert .
+fi
+if [ -e 'backups/key-build.ucert.revoke' ]; then
+    cp ./backups/key-build.ucert.revoke .
 fi
 
 #FEEDS
